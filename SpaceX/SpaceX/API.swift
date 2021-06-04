@@ -4,11 +4,11 @@
 import Apollo
 import Foundation
 
-public final class LaunchqueryQuery: GraphQLQuery {
+public final class LaunchlistQuery: GraphQLQuery {
   /// The raw GraphQL definition of this operation.
   public let operationDefinition: String =
     """
-    query LAUNCHQUERY {
+    query LAUNCHLIST {
       launchesPast(limit: 10) {
         __typename
         launch_date_local
@@ -27,7 +27,7 @@ public final class LaunchqueryQuery: GraphQLQuery {
     }
     """
 
-  public let operationName: String = "LAUNCHQUERY"
+  public let operationName: String = "LAUNCHLIST"
 
   public init() {
   }

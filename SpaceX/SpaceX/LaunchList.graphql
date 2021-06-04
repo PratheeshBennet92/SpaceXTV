@@ -1,4 +1,4 @@
-query LAUNCHQUERY {
+query LAUNCHLIST {
   launchesPast(limit: 10) {
     launch_date_local
     launch_site {

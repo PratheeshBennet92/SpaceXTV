@@ -12,7 +12,8 @@
 		4A4979D7266AA77800541FD7 /* ApolloWebSocket in Frameworks */ = {isa = PBXBuildFile; productRef = 4A4979D6266AA77800541FD7 /* ApolloWebSocket */; };
 		4A4979D9266AA77800541FD7 /* Apollo in Frameworks */ = {isa = PBXBuildFile; productRef = 4A4979D8266AA77800541FD7 /* Apollo */; };
 		4A4979DB266AA77800541FD7 /* ApolloCodegenLib in Frameworks */ = {isa = PBXBuildFile; productRef = 4A4979DA266AA77800541FD7 /* ApolloCodegenLib */; };
-		4A4979DE266AABA300541FD7 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4979DD266AABA300541FD7 /* API.swift */; };
+		4A4979E0266AAD5800541FD7 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4979DF266AAD5800541FD7 /* Network.swift */; };
+		4A4979E2266AAE3300541FD7 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4979E1266AAE3300541FD7 /* API.swift */; };
 		4A4AB3BB2668ED0800473A81 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4AB3BA2668ED0800473A81 /* AppDelegate.swift */; };
 		4A4AB3BD2668ED0800473A81 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4AB3BC2668ED0800473A81 /* ViewController.swift */; };
 		4A4AB3C02668ED0800473A81 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A4AB3BE2668ED0800473A81 /* Main.storyboard */; };
@@ -42,7 +43,8 @@
 /* Begin PBXFileReference section */
 		4A4979D0266AA5E400541FD7 /* LaunchList.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = LaunchList.graphql; sourceTree = "<group>"; };
 		4A4979DC266AA7F800541FD7 /* schema.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = schema.json; sourceTree = "<group>"; };
-		4A4979DD266AABA300541FD7 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		4A4979DF266AAD5800541FD7 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		4A4979E1266AAE3300541FD7 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		4A4AB3B72668ED0800473A81 /* SpaceX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpaceX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A4AB3BA2668ED0800473A81 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4A4AB3BC2668ED0800473A81 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -111,7 +113,7 @@
 		4A4AB3B92668ED0800473A81 /* SpaceX */ = {
 			isa = PBXGroup;
 			children = (
-				4A4979DD266AABA300541FD7 /* API.swift */,
+				4A4979E1266AAE3300541FD7 /* API.swift */,
 				4A4979DC266AA7F800541FD7 /* schema.json */,
 				4A4AB3BA2668ED0800473A81 /* AppDelegate.swift */,
 				4A4AB3BC2668ED0800473A81 /* ViewController.swift */,
@@ -120,6 +122,7 @@
 				4A4AB3C32668ED0900473A81 /* LaunchScreen.storyboard */,
 				4A4AB3C62668ED0900473A81 /* Info.plist */,
 				4A4979D0266AA5E400541FD7 /* LaunchList.graphql */,
+				4A4979DF266AAD5800541FD7 /* Network.swift */,
 			);
 			path = SpaceX;
 			sourceTree = "<group>";
@@ -305,7 +308,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				4A4AB3BD2668ED0800473A81 /* ViewController.swift in Sources */,
-				4A4979DE266AABA300541FD7 /* API.swift in Sources */,
+				4A4979E0266AAD5800541FD7 /* Network.swift in Sources */,
+				4A4979E2266AAE3300541FD7 /* API.swift in Sources */,
 				4A4AB3BB2668ED0800473A81 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
