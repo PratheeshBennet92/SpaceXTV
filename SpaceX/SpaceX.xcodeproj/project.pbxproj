@@ -19,6 +19,7 @@
 		4A497A13266AB7F800541FD7 /* HomeRemoteStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A497A12266AB7F800541FD7 /* HomeRemoteStore.swift */; };
 		4A497A15266AB96E00541FD7 /* HomeUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A497A14266AB96E00541FD7 /* HomeUseCase.swift */; };
 		4A497A17266ABA6800541FD7 /* HomeDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A497A16266ABA6800541FD7 /* HomeDataRepository.swift */; };
+		4A497A19266AC1FD00541FD7 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A497A18266AC1FD00541FD7 /* HomeViewModel.swift */; };
 		4A4AB3BB2668ED0800473A81 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4AB3BA2668ED0800473A81 /* AppDelegate.swift */; };
 		4A4AB3BD2668ED0800473A81 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4AB3BC2668ED0800473A81 /* ViewController.swift */; };
 		4A4AB3C02668ED0800473A81 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A4AB3BE2668ED0800473A81 /* Main.storyboard */; };
@@ -62,6 +63,7 @@
 		4A497A12266AB7F800541FD7 /* HomeRemoteStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRemoteStore.swift; sourceTree = "<group>"; };
 		4A497A14266AB96E00541FD7 /* HomeUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeUseCase.swift; sourceTree = "<group>"; };
 		4A497A16266ABA6800541FD7 /* HomeDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDataRepository.swift; sourceTree = "<group>"; };
+		4A497A18266AC1FD00541FD7 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		4A4AB3B72668ED0800473A81 /* SpaceX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpaceX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A4AB3BA2668ED0800473A81 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4A4AB3BC2668ED0800473A81 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -187,6 +189,7 @@
 		4A497A0D266AB68800541FD7 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				4A497A18266AC1FD00541FD7 /* HomeViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -574,6 +577,7 @@
 				4A4AB3BD2668ED0800473A81 /* ViewController.swift in Sources */,
 				4A497A13266AB7F800541FD7 /* HomeRemoteStore.swift in Sources */,
 				4A4979E0266AAD5800541FD7 /* Network.swift in Sources */,
+				4A497A19266AC1FD00541FD7 /* HomeViewModel.swift in Sources */,
 				4A4979E2266AAE3300541FD7 /* API.swift in Sources */,
 				4A497A07266AAFE400541FD7 /* CoreProtocols.swift in Sources */,
 				4A4AB3BB2668ED0800473A81 /* AppDelegate.swift in Sources */,

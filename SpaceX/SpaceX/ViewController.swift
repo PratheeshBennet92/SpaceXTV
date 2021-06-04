@@ -8,15 +8,15 @@
 import UIKit
 import Apollo
 class ViewController: UIViewController {
-  let useCase = HomeUseCase()
+  let viewModel = HomeViewModel()
   override func viewDidLoad() {
     super.viewDidLoad()
-    useCase.response.filter { each in
+    viewModel.response.filter { each in
       each != nil
     }.subscribe { result in
       print(result)
     }
-    useCase.executeUseCase()
+    viewModel.startViewModel()
   }
 
 

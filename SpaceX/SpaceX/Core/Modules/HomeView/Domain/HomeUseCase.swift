@@ -12,8 +12,8 @@ class HomeUseCase: UseCaseProtocol {
     dataRepository?.executeFetchRequest()
   }
   func addObserver() {
-    dataRepository?.response.filter({ each in
-      each != nil
+    dataRepository?.response.filter({ responseObj in
+      responseObj != nil
     }).subscribe(onNext: { [weak self] (response) in
       guard let self = self else {return}
       self.response.accept(response)

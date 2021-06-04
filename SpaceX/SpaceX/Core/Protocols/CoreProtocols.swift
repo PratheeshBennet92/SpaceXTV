@@ -16,10 +16,12 @@ protocol UIModel: Codable {
   var model: String? {get set}
 }
 protocol ViewModelProtocol {
-  var outputModel: [JSONEncodable]? {get set}
-  func startViewModel()
-  var response: BehaviorRelay<[JSONEncodable]?>{get set}
+  var outputModel: JSONEncodable? {get set}
+  var useCase: UseCaseProtocol? { get set }
+  var response: BehaviorRelay<JSONEncodable?>{get set}
   var error: BehaviorRelay<Codable?>{get set}
+  func startViewModel()
+  func addObserver()
 }
 protocol UseCaseProtocol {
   var response: BehaviorRelay<JSONEncodable?> {get set}
