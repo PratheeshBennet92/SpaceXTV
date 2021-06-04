@@ -141,6 +141,8 @@
 			dependencies = (
 			);
 			name = SpaceX;
+			packageProductDependencies = (
+			);
 			productName = SpaceX;
 			productReference = 4A4AB3B72668ED0800473A81 /* SpaceX.app */;
 			productType = "com.apple.product-type.application";
@@ -212,6 +214,8 @@
 				Base,
 			);
 			mainGroup = 4A4AB3AE2668ED0700473A81;
+			packageReferences = (
+			);
 			productRefGroup = 4A4AB3B82668ED0800473A81 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
