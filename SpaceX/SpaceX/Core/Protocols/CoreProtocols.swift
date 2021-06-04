@@ -1,6 +1,7 @@
 import Foundation
 import RxSwift
 import RxCocoa
+import Apollo
 protocol Viewable {
   associatedtype ViewModel
   associatedtype Coordinator
@@ -15,18 +16,20 @@ protocol UIModel: Codable {
   var model: String? {get set}
 }
 protocol ViewModelProtocol {
-  var outputModel: [UIModel]? {get set}
+  var outputModel: [JSONEncodable]? {get set}
   func startViewModel()
-  var response: BehaviorRelay<[UIModel]?>{get set}
+  var response: BehaviorRelay<[JSONEncodable]?>{get set}
   var error: BehaviorRelay<Codable?>{get set}
 }
 protocol UseCaseProtocol {
-  var response: BehaviorRelay<Codable?> {get set}
+  var response: BehaviorRelay<JSONEncodable?> {get set}
+  var dataRepository: DataRepositoryProtocol? { get set }
   func executeUseCase()
   func addObserver()
 }
 protocol DataRepositoryProtocol {
-  var response: BehaviorRelay<Codable?> {get set}
+  var response: BehaviorRelay<JSONEncodable?> {get set}
+  var remoteStore: RemoteStoreProtocol? { get set }
   func executeFetchRequest()
   func addObserver()
 }
@@ -34,6 +37,6 @@ protocol LocalStoreProtocol {
   
 }
 protocol RemoteStoreProtocol {
-  var responseObserver: PublishSubject<Codable?>? { get set }
+  var responseObserver: PublishSubject<JSONEncodable?>? { get set }
   func connectRemote()
 }

@@ -7,15 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4A4979D3266AA77800541FD7 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 4A4979D2266AA77800541FD7 /* SwiftPackageProductDependency */; };
-		4A4979D5266AA77800541FD7 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 4A4979D4266AA77800541FD7 /* SwiftPackageProductDependency */; };
-		4A4979D7266AA77800541FD7 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 4A4979D6266AA77800541FD7 /* SwiftPackageProductDependency */; };
-		4A4979D9266AA77800541FD7 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 4A4979D8266AA77800541FD7 /* SwiftPackageProductDependency */; };
-		4A4979DB266AA77800541FD7 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 4A4979DA266AA77800541FD7 /* SwiftPackageProductDependency */; };
+		4A4979D3266AA77800541FD7 /* ApolloCore in Frameworks */ = {isa = PBXBuildFile; productRef = 4A4979D2266AA77800541FD7 /* ApolloCore */; };
+		4A4979D5266AA77800541FD7 /* ApolloSQLite in Frameworks */ = {isa = PBXBuildFile; productRef = 4A4979D4266AA77800541FD7 /* ApolloSQLite */; };
+		4A4979D7266AA77800541FD7 /* ApolloWebSocket in Frameworks */ = {isa = PBXBuildFile; productRef = 4A4979D6266AA77800541FD7 /* ApolloWebSocket */; };
+		4A4979D9266AA77800541FD7 /* Apollo in Frameworks */ = {isa = PBXBuildFile; productRef = 4A4979D8266AA77800541FD7 /* Apollo */; };
+		4A4979DB266AA77800541FD7 /* ApolloCodegenLib in Frameworks */ = {isa = PBXBuildFile; productRef = 4A4979DA266AA77800541FD7 /* ApolloCodegenLib */; };
 		4A4979E0266AAD5800541FD7 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4979DF266AAD5800541FD7 /* Network.swift */; };
 		4A4979E2266AAE3300541FD7 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4979E1266AAE3300541FD7 /* API.swift */; };
 		4A497A07266AAFE400541FD7 /* CoreProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4979F6266AAFE300541FD7 /* CoreProtocols.swift */; };
 		4A497A08266AAFE400541FD7 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4979F8266AAFE300541FD7 /* Constants.swift */; };
+		4A497A13266AB7F800541FD7 /* HomeRemoteStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A497A12266AB7F800541FD7 /* HomeRemoteStore.swift */; };
+		4A497A15266AB96E00541FD7 /* HomeUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A497A14266AB96E00541FD7 /* HomeUseCase.swift */; };
+		4A497A17266ABA6800541FD7 /* HomeDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A497A16266ABA6800541FD7 /* HomeDataRepository.swift */; };
 		4A4AB3BB2668ED0800473A81 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4AB3BA2668ED0800473A81 /* AppDelegate.swift */; };
 		4A4AB3BD2668ED0800473A81 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4AB3BC2668ED0800473A81 /* ViewController.swift */; };
 		4A4AB3C02668ED0800473A81 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A4AB3BE2668ED0800473A81 /* Main.storyboard */; };
@@ -56,6 +59,9 @@
 		4A4979E1266AAE3300541FD7 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		4A4979F6266AAFE300541FD7 /* CoreProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreProtocols.swift; sourceTree = "<group>"; };
 		4A4979F8266AAFE300541FD7 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		4A497A12266AB7F800541FD7 /* HomeRemoteStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRemoteStore.swift; sourceTree = "<group>"; };
+		4A497A14266AB96E00541FD7 /* HomeUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeUseCase.swift; sourceTree = "<group>"; };
+		4A497A16266ABA6800541FD7 /* HomeDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDataRepository.swift; sourceTree = "<group>"; };
 		4A4AB3B72668ED0800473A81 /* SpaceX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpaceX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A4AB3BA2668ED0800473A81 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4A4AB3BC2668ED0800473A81 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -81,11 +87,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4A4979DB266AA77800541FD7 /* BuildFile in Frameworks */,
-				4A4979D3266AA77800541FD7 /* BuildFile in Frameworks */,
-				4A4979D9266AA77800541FD7 /* BuildFile in Frameworks */,
-				4A4979D7266AA77800541FD7 /* BuildFile in Frameworks */,
-				4A4979D5266AA77800541FD7 /* BuildFile in Frameworks */,
+				4A4979DB266AA77800541FD7 /* ApolloCodegenLib in Frameworks */,
+				4A4979D3266AA77800541FD7 /* ApolloCore in Frameworks */,
+				4A4979D9266AA77800541FD7 /* Apollo in Frameworks */,
+				4A4979D7266AA77800541FD7 /* ApolloWebSocket in Frameworks */,
+				4A4979D5266AA77800541FD7 /* ApolloSQLite in Frameworks */,
 				C404349FC861B866E91D54DF /* Pods_SpaceX.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -112,6 +118,7 @@
 		4A4979E3266AAFE300541FD7 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				4A497A09266AB65E00541FD7 /* Modules */,
 				4A4979E4266AAFE300541FD7 /* Network */,
 				4A4979F5266AAFE300541FD7 /* Protocols */,
 				4A4979F7266AAFE300541FD7 /* Utility */,
@@ -141,6 +148,80 @@
 				4A4979F8266AAFE300541FD7 /* Constants.swift */,
 			);
 			path = Utility;
+			sourceTree = "<group>";
+		};
+		4A497A09266AB65E00541FD7 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				4A497A0A266AB66800541FD7 /* HomeView */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		4A497A0A266AB66800541FD7 /* HomeView */ = {
+			isa = PBXGroup;
+			children = (
+				4A497A0F266AB6A700541FD7 /* DataRepository */,
+				4A497A0E266AB6A100541FD7 /* Domain */,
+				4A497A0B266AB67700541FD7 /* Presentation */,
+			);
+			path = HomeView;
+			sourceTree = "<group>";
+		};
+		4A497A0B266AB67700541FD7 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				4A497A0D266AB68800541FD7 /* ViewModel */,
+				4A497A0C266AB68300541FD7 /* View */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		4A497A0C266AB68300541FD7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		4A497A0D266AB68800541FD7 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		4A497A0E266AB6A100541FD7 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				4A497A14266AB96E00541FD7 /* HomeUseCase.swift */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		4A497A0F266AB6A700541FD7 /* DataRepository */ = {
+			isa = PBXGroup;
+			children = (
+				4A497A11266AB6C400541FD7 /* RemoteStore */,
+				4A497A10266AB6BD00541FD7 /* LocalStore */,
+				4A497A16266ABA6800541FD7 /* HomeDataRepository.swift */,
+			);
+			path = DataRepository;
+			sourceTree = "<group>";
+		};
+		4A497A10266AB6BD00541FD7 /* LocalStore */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = LocalStore;
+			sourceTree = "<group>";
+		};
+		4A497A11266AB6C400541FD7 /* RemoteStore */ = {
+			isa = PBXGroup;
+			children = (
+				4A497A12266AB7F800541FD7 /* HomeRemoteStore.swift */,
+			);
+			path = RemoteStore;
 			sourceTree = "<group>";
 		};
 		4A4AB3AE2668ED0700473A81 = {
@@ -210,7 +291,6 @@
 				5A7A931664580E25E57AE81F /* Pods-SpaceXTests.debug.xcconfig */,
 				440C7DF987EABE316D6E33D0 /* Pods-SpaceXTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -244,11 +324,11 @@
 			);
 			name = SpaceX;
 			packageProductDependencies = (
-				4A4979D2266AA77800541FD7 /* SwiftPackageProductDependency */,
-				4A4979D4266AA77800541FD7 /* SwiftPackageProductDependency */,
-				4A4979D6266AA77800541FD7 /* SwiftPackageProductDependency */,
-				4A4979D8266AA77800541FD7 /* SwiftPackageProductDependency */,
-				4A4979DA266AA77800541FD7 /* SwiftPackageProductDependency */,
+				4A4979D2266AA77800541FD7 /* ApolloCore */,
+				4A4979D4266AA77800541FD7 /* ApolloSQLite */,
+				4A4979D6266AA77800541FD7 /* ApolloWebSocket */,
+				4A4979D8266AA77800541FD7 /* Apollo */,
+				4A4979DA266AA77800541FD7 /* ApolloCodegenLib */,
 			);
 			productName = SpaceX;
 			productReference = 4A4AB3B72668ED0800473A81 /* SpaceX.app */;
@@ -325,7 +405,7 @@
 			);
 			mainGroup = 4A4AB3AE2668ED0700473A81;
 			packageReferences = (
-				4A4979D1266AA77800541FD7 /* RemoteSwiftPackageReference */,
+				4A4979D1266AA77800541FD7 /* XCRemoteSwiftPackageReference "apollo-ios" */,
 			);
 			productRefGroup = 4A4AB3B82668ED0800473A81 /* Products */;
 			projectDirPath = "";
@@ -492,10 +572,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				4A4AB3BD2668ED0800473A81 /* ViewController.swift in Sources */,
+				4A497A13266AB7F800541FD7 /* HomeRemoteStore.swift in Sources */,
 				4A4979E0266AAD5800541FD7 /* Network.swift in Sources */,
 				4A4979E2266AAE3300541FD7 /* API.swift in Sources */,
 				4A497A07266AAFE400541FD7 /* CoreProtocols.swift in Sources */,
 				4A4AB3BB2668ED0800473A81 /* AppDelegate.swift in Sources */,
+				4A497A15266AB96E00541FD7 /* HomeUseCase.swift in Sources */,
+				4A497A17266ABA6800541FD7 /* HomeDataRepository.swift in Sources */,
 				4A497A08266AAFE400541FD7 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -837,7 +920,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		4A4979D1266AA77800541FD7 /* RemoteSwiftPackageReference */ = {
+		4A4979D1266AA77800541FD7 /* XCRemoteSwiftPackageReference "apollo-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/apollographql/apollo-ios.git";
 			requirement = {
@@ -848,29 +931,29 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		4A4979D2266AA77800541FD7 /* SwiftPackageProductDependency */ = {
+		4A4979D2266AA77800541FD7 /* ApolloCore */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 4A4979D1266AA77800541FD7 /* RemoteSwiftPackageReference */;
+			package = 4A4979D1266AA77800541FD7 /* XCRemoteSwiftPackageReference "apollo-ios" */;
 			productName = ApolloCore;
 		};
-		4A4979D4266AA77800541FD7 /* SwiftPackageProductDependency */ = {
+		4A4979D4266AA77800541FD7 /* ApolloSQLite */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 4A4979D1266AA77800541FD7 /* RemoteSwiftPackageReference */;
+			package = 4A4979D1266AA77800541FD7 /* XCRemoteSwiftPackageReference "apollo-ios" */;
 			productName = ApolloSQLite;
 		};
-		4A4979D6266AA77800541FD7 /* SwiftPackageProductDependency */ = {
+		4A4979D6266AA77800541FD7 /* ApolloWebSocket */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 4A4979D1266AA77800541FD7 /* RemoteSwiftPackageReference */;
+			package = 4A4979D1266AA77800541FD7 /* XCRemoteSwiftPackageReference "apollo-ios" */;
 			productName = ApolloWebSocket;
 		};
-		4A4979D8266AA77800541FD7 /* SwiftPackageProductDependency */ = {
+		4A4979D8266AA77800541FD7 /* Apollo */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 4A4979D1266AA77800541FD7 /* RemoteSwiftPackageReference */;
+			package = 4A4979D1266AA77800541FD7 /* XCRemoteSwiftPackageReference "apollo-ios" */;
 			productName = Apollo;
 		};
-		4A4979DA266AA77800541FD7 /* SwiftPackageProductDependency */ = {
+		4A4979DA266AA77800541FD7 /* ApolloCodegenLib */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 4A4979D1266AA77800541FD7 /* RemoteSwiftPackageReference */;
+			package = 4A4979D1266AA77800541FD7 /* XCRemoteSwiftPackageReference "apollo-ios" */;
 			productName = ApolloCodegenLib;
 		};
 /* End XCSwiftPackageProductDependency section */
