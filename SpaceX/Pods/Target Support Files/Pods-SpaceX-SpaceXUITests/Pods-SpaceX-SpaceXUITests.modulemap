@@ -1,0 +1,6 @@
+framework module Pods_SpaceX_SpaceXUITests {
+  umbrella header "Pods-SpaceX-SpaceXUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
