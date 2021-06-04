@@ -4,7 +4,7 @@
 //
 //  Created by Pratheesh on 6/3/21.
 //
-
+//add schema and .graphql in project folder. Then only API.swift will be created. 
 import UIKit
 
 @main
