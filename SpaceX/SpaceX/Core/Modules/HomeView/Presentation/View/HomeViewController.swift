@@ -10,15 +10,16 @@ import Apollo
 class HomeViewController: UIViewController {
   private var gridView: GridViewController<GridViewCell,  [LaunchlistQuery.Data.LaunchesPast]> = {
     let view = GridViewController<GridViewCell,  [LaunchlistQuery.Data.LaunchesPast]>()
-    let viewModel = HomeViewModel()
-    view.viewModel = viewModel
     view.view.translatesAutoresizingMaskIntoConstraints  = false
     return view
   }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        addGrid()
+      let viewModel = HomeViewModel()
+      gridView.viewModel = viewModel
+      gridView.setupViewModel()
         // Do any additional setup after loading the view.
     }
   private func addGrid() {

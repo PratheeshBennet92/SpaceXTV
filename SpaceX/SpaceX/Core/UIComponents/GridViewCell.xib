@@ -17,9 +17,8 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hola" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8WT-eN-RTk">
-                        <rect key="frame" x="236" y="112" width="92" height="46"/>
+                        <rect key="frame" x="90" y="112" width="509" height="46"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="92" id="CTD-WL-64N"/>
                             <constraint firstAttribute="height" constant="46" id="WC1-SX-kny"/>
                         </constraints>
                         <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
@@ -30,10 +29,14 @@
             </view>
             <viewLayoutGuide key="safeArea" id="7PP-Ag-gPX"/>
             <constraints>
-                <constraint firstItem="8WT-eN-RTk" firstAttribute="centerX" secondItem="7PP-Ag-gPX" secondAttribute="centerX" constant="-62.5" id="3JJ-pj-WrN"/>
                 <constraint firstItem="8WT-eN-RTk" firstAttribute="centerY" secondItem="7PP-Ag-gPX" secondAttribute="centerY" constant="-30" id="7cn-1r-1qD"/>
+                <constraint firstItem="8WT-eN-RTk" firstAttribute="leading" secondItem="7PP-Ag-gPX" secondAttribute="leading" constant="10" id="b54-No-Th1"/>
+                <constraint firstItem="7PP-Ag-gPX" firstAttribute="trailing" secondItem="8WT-eN-RTk" secondAttribute="trailing" constant="10" id="s49-kF-wpa"/>
             </constraints>
             <size key="customSize" width="609" height="270"/>
+            <connections>
+                <outlet property="title" destination="8WT-eN-RTk" id="Cgn-n8-fwv"/>
+            </connections>
             <point key="canvasLocation" x="243.5" y="44"/>
         </collectionViewCell>
     </objects>

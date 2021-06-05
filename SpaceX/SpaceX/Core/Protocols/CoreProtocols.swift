@@ -16,7 +16,7 @@ protocol UIModel: Codable {
   var model: String? {get set}
 }
 protocol ViewModelProtocol {
-  var outputModel: JSONEncodable? {get set}
+  var outputModel: [JSONEncodable]? {get set}
   var useCase: UseCaseProtocol? { get set }
   var response: BehaviorRelay<JSONEncodable?>{get set}
   var error: BehaviorRelay<Codable?>{get set}
