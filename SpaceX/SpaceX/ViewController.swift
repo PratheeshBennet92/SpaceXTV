@@ -17,6 +17,7 @@ class ViewController: UIViewController {
     }.subscribe(onNext: { [weak self] (responseObj) in
       guard let self = self else {return}
       print(responseObj as? [LaunchlistQuery.Data.LaunchesPast?]?)
+      print((responseObj as? [LaunchlistQuery.Data.LaunchesPast?]?)??.first is JSONEncodable)
       self.lbl.text = "\((responseObj as? [LaunchlistQuery.Data.LaunchesPast?]?)??.count ?? 0) Objects received"
     })
     viewModel.startViewModel()

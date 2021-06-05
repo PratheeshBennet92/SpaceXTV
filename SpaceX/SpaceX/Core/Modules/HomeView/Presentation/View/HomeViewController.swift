@@ -10,6 +10,8 @@ import Apollo
 class HomeViewController: UIViewController {
   private var gridView: GridViewController<GridViewCell,  [LaunchlistQuery.Data.LaunchesPast]> = {
     let view = GridViewController<GridViewCell,  [LaunchlistQuery.Data.LaunchesPast]>()
+    let viewModel = HomeViewModel()
+    view.viewModel = viewModel
     view.view.translatesAutoresizingMaskIntoConstraints  = false
     return view
   }()
@@ -19,16 +21,14 @@ class HomeViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+  private func addGrid() {
+    gridView.view.translatesAutoresizingMaskIntoConstraints  = false
+    self.addChild(gridView)
+    self.view.addSubview(gridView.view)
+    gridView.view.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: .zero).isActive = true
+    gridView.view.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: .zero).isActive = true
+    gridView.view.topAnchor.constraint(equalTo: self.view.topAnchor, constant: .zero).isActive = true
+    gridView.view.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: .zero).isActive = true
+    gridView.didMove(toParent: self)
+  }
 }
