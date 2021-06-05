@@ -10,7 +10,8 @@ class GridViewController<Cell: DynamicDataCell, DataType: JSONEncodable>: UIView
   lazy var collectionView: UICollectionView = {
     let layout:UICollectionViewFlowLayout = UICollectionViewFlowLayout()
     layout.scrollDirection = UICollectionView.ScrollDirection.horizontal
-    let collectionView = UICollectionView(frame: UIScreen.main.bounds, collectionViewLayout: layout)
+    let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+    collectionView.contentInsetAdjustmentBehavior = .never
     collectionView.translatesAutoresizingMaskIntoConstraints = false
     return collectionView
   }()
@@ -21,17 +22,22 @@ class GridViewController<Cell: DynamicDataCell, DataType: JSONEncodable>: UIView
     self.collectionView.showsVerticalScrollIndicator = false
     if let flowLayout = self.collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
         flowLayout.scrollDirection = .horizontal
-        flowLayout.itemSize = UICollectionViewFlowLayout.automaticSize
-        flowLayout.estimatedItemSize = CGSize(width: 300, height: 300)
+        flowLayout.itemSize = CGSize(width: 600, height: 300)
+        //flowLayout.itemSize = UICollectionViewFlowLayout.automaticSize
+        //flowLayout.estimatedItemSize = CGSize(width: 600, height: 300)
     }
     delegate = GridViewDelegate(delegate: self)
     dataSource = GridViewDataSource<Cell, DataType>(delegate: self)
     dataSource?.dataSource = viewModel?.outputModel
     self.collectionView.delegate = delegate
     self.collectionView.dataSource = dataSource
+   
   }
   override func viewDidLoad() {
     super.viewDidLoad()
+//    self.automaticallyAdjustsScrollViewInsets = false
+//    self.edgesForExtendedLayout = UIRectEdge.all
+    collectionView.contentInset = UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 0)
     configureCollectionView()
     addGridView()
   }
@@ -53,6 +59,14 @@ class GridViewController<Cell: DynamicDataCell, DataType: JSONEncodable>: UIView
       self.collectionView.reloadData()
     }).disposed(by: disposeBag)
   }
+  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    return CGSize(width: 600, height: 300)
+  }
+  
+  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+         return UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
+      }
+
 }
 extension GridViewController: GridCallBacK {
   func didSelectionOfItem(_ indexPath: IndexPath) {
