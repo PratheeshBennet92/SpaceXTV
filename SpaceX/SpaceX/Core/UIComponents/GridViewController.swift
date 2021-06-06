@@ -2,14 +2,24 @@ import UIKit
 import Apollo
 import RxSwift
 import RxCocoa
+import AVFoundation
+import AVKit
 class GridViewController<Cell: DynamicDataCell, DataType: JSONEncodable>: UIViewController, UINavigationControllerDelegate, UICollectionViewDelegateFlowLayout, UIScrollViewDelegate where Cell: UICollectionViewCell {
   var viewModel: ViewModelProtocol?
   var dataSource: GridViewDataSource<Cell, DataType>?
   var delegate: GridViewDelegate?
   let disposeBag: DisposeBag = DisposeBag()
   lazy var collectionView: UICollectionView = {
-    let layout:UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-    layout.scrollDirection = UICollectionView.ScrollDirection.horizontal
+//    let layout:UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+//    layout.scrollDirection = UICollectionView.ScrollDirection.horizontal
+    
+    let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+            layout.sectionInset = UIEdgeInsets(top: 20, left: 0, bottom: 10, right: 0)
+    layout.itemSize = CGSize(width: UIScreen.main.bounds.width/3, height: UIScreen.main.bounds.height/3)
+            layout.minimumInteritemSpacing = 20
+            layout.minimumLineSpacing = 20
+            //collectionView!.collectionViewLayout = layout
+    
     let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
     collectionView.contentInsetAdjustmentBehavior = .never
     collectionView.translatesAutoresizingMaskIntoConstraints = false
@@ -70,7 +80,21 @@ class GridViewController<Cell: DynamicDataCell, DataType: JSONEncodable>: UIView
 }
 extension GridViewController: GridCallBacK {
   func didSelectionOfItem(_ indexPath: IndexPath) {
-    
+    print("Item selected")
+    guard let url = URL(string: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4") else {
+            return
+        }
+        // Create an AVPlayer, passing it the HTTP Live Streaming URL.
+        let player = AVPlayer(url: url)
+
+        // Create a new AVPlayerViewController and pass it a reference to the player.
+        let controller = AVPlayerViewController()
+        controller.player = player
+
+        // Modally present the player and call the player's play() method when complete.
+        present(controller, animated: true) {
+            player.play()
+        }
   }
 }
 extension GridViewController: GridItemCallBacK {
