@@ -83,34 +83,37 @@ extension GridViewController: GridCallBacK {
   func didSelectionOfItem(_ indexPath: IndexPath) {
     print("Item selected")
     
-    let playerViewController = AVPlayerViewController()
-    self.present(playerViewController, animated: true, completion: nil)
-    XCDYouTubeClient.default().getVideoWithIdentifier("U2rmEFVUUHA") { video, error in
-      if let streamURL = (video?.streamURLs[XCDYouTubeVideoQualityHTTPLiveStreaming] ??
-                            video?.streamURLs[XCDYouTubeVideoQuality.HD720.rawValue] ??
-                            video?.streamURLs[XCDYouTubeVideoQuality.medium360.rawValue] ??
-                            video?.streamURLs[XCDYouTubeVideoQuality.small240.rawValue]) {
-        playerViewController.player = AVPlayer(url: streamURL)
-      } else {
-        self.dismiss(animated: true, completion: nil)
-      }
-    }
+//    let playerViewController = AVPlayerViewController()
+//    self.present(playerViewController, animated: true, completion: nil)
+//    XCDYouTubeClient.default().getVideoWithIdentifier("U2rmEFVUUHA") { video, error in
+//      if let streamURL = (video?.streamURLs[XCDYouTubeVideoQualityHTTPLiveStreaming] ??
+//                            video?.streamURLs[XCDYouTubeVideoQuality.HD720.rawValue] ??
+//                            video?.streamURLs[XCDYouTubeVideoQuality.medium360.rawValue] ??
+//                            video?.streamURLs[XCDYouTubeVideoQuality.small240.rawValue]) {
+//        playerViewController.player = AVPlayer(url: streamURL)
+//      } else {
+//        self.dismiss(animated: true, completion: nil)
+//      }
+//    }
+//  }
+//}
+  
+      guard let url = URL(string: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4") else {
+              return
+          }
+          // Create an AVPlayer, passing it the HTTP Live Streaming URL.
+          let player = AVPlayer(url: url)
+  
+          // Create a new AVPlayerViewController and pass it a reference to the player.
+          let controller = AVPlayerViewController()
+          controller.player = player
+  
+          // Modally present the player and call the player's play() method when complete.
+          present(controller, animated: true) {
+              player.play()
+          }
   }
 }
-  
-  //    guard let url = URL(string: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4") else {
-  //            return
-  //        }
-  //        // Create an AVPlayer, passing it the HTTP Live Streaming URL.
-  //        let player = AVPlayer(url: url)
-  //
-  //        // Create a new AVPlayerViewController and pass it a reference to the player.
-  //        let controller = AVPlayerViewController()
-  //        controller.player = player
-  //
-  //        // Modally present the player and call the player's play() method when complete.
-  //        present(controller, animated: true) {
-  //            player.play()
       
 extension GridViewController: GridItemCallBacK {
 }
