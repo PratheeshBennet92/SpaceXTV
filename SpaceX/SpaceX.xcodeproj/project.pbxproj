@@ -26,6 +26,7 @@
 		4A4AB3D02668ED0900473A81 /* SpaceXTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4AB3CF2668ED0900473A81 /* SpaceXTests.swift */; };
 		4A4AB3DB2668ED0900473A81 /* SpaceXUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4AB3DA2668ED0900473A81 /* SpaceXUITests.swift */; };
 		4A4B91B7266D0DAB00784100 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4B91B6266D0DAB00784100 /* UIImage+Extension.swift */; };
+		4A4B91BD266D5DD000784100 /* XCDYouTubeKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A4B91BC266D5DD000784100 /* XCDYouTubeKit.framework */; };
 		4A60DFEE266BBF00001F0C5C /* DynamicDataCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A60DFED266BBF00001F0C5C /* DynamicDataCell.swift */; };
 		4A60DFF0266BC30A001F0C5C /* GridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A60DFEF266BC30A001F0C5C /* GridViewController.swift */; };
 		4A60DFF2266BC7F6001F0C5C /* GridViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A60DFF1266BC7F6001F0C5C /* GridViewDataSource.swift */; };
@@ -84,6 +85,7 @@
 		4A4AB3DA2668ED0900473A81 /* SpaceXUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceXUITests.swift; sourceTree = "<group>"; };
 		4A4AB3DC2668ED0900473A81 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4A4B91B6266D0DAB00784100 /* UIImage+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
+		4A4B91BC266D5DD000784100 /* XCDYouTubeKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = XCDYouTubeKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A60DFED266BBF00001F0C5C /* DynamicDataCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicDataCell.swift; sourceTree = "<group>"; };
 		4A60DFEF266BC30A001F0C5C /* GridViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridViewController.swift; sourceTree = "<group>"; };
 		4A60DFF1266BC7F6001F0C5C /* GridViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridViewDataSource.swift; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A4B91BD266D5DD000784100 /* XCDYouTubeKit.framework in Frameworks */,
 				4A4979DB266AA77800541FD7 /* ApolloCodegenLib in Frameworks */,
 				4A4979D3266AA77800541FD7 /* ApolloCore in Frameworks */,
 				4A4979D9266AA77800541FD7 /* Apollo in Frameworks */,
@@ -364,6 +367,7 @@
 		D8C47365BEF5C0095F8CBB1E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4A4B91BC266D5DD000784100 /* XCDYouTubeKit.framework */,
 				3ABE7C12DA1B41C3597742C8 /* Pods_SpaceX.framework */,
 				80E23908E5B51F27FC4B2A68 /* Pods_SpaceX_SpaceXUITests.framework */,
 				81BDC68D8EEA443266F7E76E /* Pods_SpaceXTests.framework */,

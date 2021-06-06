@@ -5,22 +5,26 @@ PODS:
   - RxRelay (5.1.1):
     - RxSwift (~> 5)
   - RxSwift (5.1.1)
+  - XCDYouTubeKit (2.15.2)
 
 DEPENDENCIES:
   - RxCocoa (~> 5)
   - RxSwift (~> 5)
+  - XCDYouTubeKit (~> 2.15)
 
 SPEC REPOS:
   trunk:
     - RxCocoa
     - RxRelay
     - RxSwift
+    - XCDYouTubeKit
 
 SPEC CHECKSUMS:
   RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
   RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
   RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
+  XCDYouTubeKit: b120aced3d8638ffb570c5450cddb5a1dac448c7
 
-PODFILE CHECKSUM: b3f40f0653e4c738e151156d8d932be2e3e1d3ea
+PODFILE CHECKSUM: 45a397ee7f34fdc9bc4b8320876b0563bfcb759b
 
 COCOAPODS: 1.8.4
