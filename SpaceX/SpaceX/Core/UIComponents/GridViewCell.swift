@@ -13,8 +13,8 @@ class GridViewCell: UICollectionViewCell, DynamicDataCell {
   }
   func configure(_ dataType: LaunchlistQuery.Data.LaunchesPast?) {
     self.title.text = dataType?.missionName
-    if let imageUrl = dataType?.links?.flickrImages?.first, let url = imageUrl {
-      self.imageView.downloadImageFrom(link: url, contentMode: .scaleToFill)
+    if let imageUrl = dataType?.links?.missionPatch {
+      self.imageView.downloadImageFrom(link: imageUrl, contentMode: .scaleToFill)
     }
   }
 }

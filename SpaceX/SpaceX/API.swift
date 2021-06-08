@@ -21,6 +21,7 @@ public final class LaunchlistQuery: GraphQLQuery {
           article_link
           video_link
           flickr_images
+          mission_patch
         }
         mission_name
       }
@@ -176,6 +177,7 @@ public final class LaunchlistQuery: GraphQLQuery {
             GraphQLField("article_link", type: .scalar(String.self)),
             GraphQLField("video_link", type: .scalar(String.self)),
             GraphQLField("flickr_images", type: .list(.scalar(String.self))),
+            GraphQLField("mission_patch", type: .scalar(String.self)),
           ]
         }
 
@@ -185,8 +187,8 @@ public final class LaunchlistQuery: GraphQLQuery {
           self.resultMap = unsafeResultMap
         }
 
-        public init(articleLink: String? = nil, videoLink: String? = nil, flickrImages: [String?]? = nil) {
-          self.init(unsafeResultMap: ["__typename": "LaunchLinks", "article_link": articleLink, "video_link": videoLink, "flickr_images": flickrImages])
+        public init(articleLink: String? = nil, videoLink: String? = nil, flickrImages: [String?]? = nil, missionPatch: String? = nil) {
+          self.init(unsafeResultMap: ["__typename": "LaunchLinks", "article_link": articleLink, "video_link": videoLink, "flickr_images": flickrImages, "mission_patch": missionPatch])
         }
 
         public var __typename: String {
@@ -222,6 +224,15 @@ public final class LaunchlistQuery: GraphQLQuery {
           }
           set {
             resultMap.updateValue(newValue, forKey: "flickr_images")
+          }
+        }
+
+        public var missionPatch: String? {
+          get {
+            return resultMap["mission_patch"] as? String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "mission_patch")
           }
         }
       }

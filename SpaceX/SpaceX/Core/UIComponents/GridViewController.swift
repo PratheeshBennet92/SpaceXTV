@@ -33,7 +33,7 @@ class GridViewController<Cell: DynamicDataCell, DataType: JSONEncodable>: UIView
     self.collectionView.showsVerticalScrollIndicator = false
     if let flowLayout = self.collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
         flowLayout.scrollDirection = .horizontal
-        flowLayout.itemSize = CGSize(width: 600, height: 300)
+        flowLayout.itemSize = CGSize(width: 600, height: 450)
         //flowLayout.itemSize = UICollectionViewFlowLayout.automaticSize
         //flowLayout.estimatedItemSize = CGSize(width: 600, height: 300)
     }
@@ -71,7 +71,7 @@ class GridViewController<Cell: DynamicDataCell, DataType: JSONEncodable>: UIView
     }).disposed(by: disposeBag)
   }
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-    return CGSize(width: 600, height: 300)
+    return CGSize(width: 600, height: 450)
   }
   
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
@@ -83,35 +83,16 @@ extension GridViewController: GridCallBacK {
   func didSelectionOfItem(_ indexPath: IndexPath) {
     print("Item selected")
     
-//    let playerViewController = AVPlayerViewController()
-//    self.present(playerViewController, animated: true, completion: nil)
-//    XCDYouTubeClient.default().getVideoWithIdentifier("U2rmEFVUUHA") { video, error in
-//      if let streamURL = (video?.streamURLs[XCDYouTubeVideoQualityHTTPLiveStreaming] ??
-//                            video?.streamURLs[XCDYouTubeVideoQuality.HD720.rawValue] ??
-//                            video?.streamURLs[XCDYouTubeVideoQuality.medium360.rawValue] ??
-//                            video?.streamURLs[XCDYouTubeVideoQuality.small240.rawValue]) {
-//        playerViewController.player = AVPlayer(url: streamURL)
-//      } else {
-//        self.dismiss(animated: true, completion: nil)
-//      }
-//    }
-//  }
-//}
-  
-      guard let url = URL(string: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4") else {
-              return
-          }
-          // Create an AVPlayer, passing it the HTTP Live Streaming URL.
-          let player = AVPlayer(url: url)
-  
-          // Create a new AVPlayerViewController and pass it a reference to the player.
-          let controller = AVPlayerViewController()
-          controller.player = player
-  
-          // Modally present the player and call the player's play() method when complete.
-          present(controller, animated: true) {
-              player.play()
-          }
+    guard let path = Bundle.main.path(forResource: "Crew Dragon _ Animation", ofType:"mp4") else {
+               debugPrint("video.m4v not found")
+               return
+           }
+           let player = AVPlayer(url: URL(fileURLWithPath: path))
+           let playerController = AVPlayerViewController()
+           playerController.player = player
+           present(playerController, animated: true) {
+               player.play()
+           }
   }
 }
       
