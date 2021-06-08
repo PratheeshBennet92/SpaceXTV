@@ -37,6 +37,9 @@
 		4A60DFFD266BDEF5001F0C5C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A60DFFC266BDEF5001F0C5C /* HomeViewController.swift */; };
 		4A60DFFF266C0AA5001F0C5C /* —Pngtree—astronaut_2617941.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A60DFFE266C0AA5001F0C5C /* —Pngtree—astronaut_2617941.png */; };
 		4A6560022670059D00609A78 /* Crew Dragon _ Animation.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 4A6560012670059D00609A78 /* Crew Dragon _ Animation.mp4 */; };
+		4A65600426700AA900609A78 /* spacex.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A65600326700AA900609A78 /* spacex.png */; };
+		4A65600626700B3200609A78 /* space.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A65600526700B3200609A78 /* space.png */; };
+		4A65600826700BD300609A78 /* placeholder_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A65600726700BD300609A78 /* placeholder_logo.png */; };
 		54F62D5CC3D68FB2392B9645 /* Pods_SpaceXTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81BDC68D8EEA443266F7E76E /* Pods_SpaceXTests.framework */; };
 		C404349FC861B866E91D54DF /* Pods_SpaceX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ABE7C12DA1B41C3597742C8 /* Pods_SpaceX.framework */; };
 		DC8031C5590A60BC5A35A090 /* Pods_SpaceX_SpaceXUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80E23908E5B51F27FC4B2A68 /* Pods_SpaceX_SpaceXUITests.framework */; };
@@ -97,6 +100,9 @@
 		4A60DFFC266BDEF5001F0C5C /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		4A60DFFE266C0AA5001F0C5C /* —Pngtree—astronaut_2617941.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "—Pngtree—astronaut_2617941.png"; sourceTree = "<group>"; };
 		4A6560012670059D00609A78 /* Crew Dragon _ Animation.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Crew Dragon _ Animation.mp4"; sourceTree = "<group>"; };
+		4A65600326700AA900609A78 /* spacex.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spacex.png; sourceTree = "<group>"; };
+		4A65600526700B3200609A78 /* space.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = space.png; sourceTree = "<group>"; };
+		4A65600726700BD300609A78 /* placeholder_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder_logo.png; sourceTree = "<group>"; };
 		5A7A931664580E25E57AE81F /* Pods-SpaceXTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpaceXTests.debug.xcconfig"; path = "Target Support Files/Pods-SpaceXTests/Pods-SpaceXTests.debug.xcconfig"; sourceTree = "<group>"; };
 		6C4156C993A7F75F2B85674E /* Pods-SpaceX-SpaceXUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpaceX-SpaceXUITests.release.xcconfig"; path = "Target Support Files/Pods-SpaceX-SpaceXUITests/Pods-SpaceX-SpaceXUITests.release.xcconfig"; sourceTree = "<group>"; };
 		80E23908E5B51F27FC4B2A68 /* Pods_SpaceX_SpaceXUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SpaceX_SpaceXUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -141,6 +147,7 @@
 		4A4979E3266AAFE300541FD7 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				4A65600726700BD300609A78 /* placeholder_logo.png */,
 				4A6560012670059D00609A78 /* Crew Dragon _ Animation.mp4 */,
 				4A4B91B6266D0DAB00784100 /* UIImage+Extension.swift */,
 				4A60DFEC266BBEE0001F0C5C /* UIComponents */,
@@ -343,6 +350,8 @@
 			isa = PBXGroup;
 			children = (
 				4A60DFFE266C0AA5001F0C5C /* —Pngtree—astronaut_2617941.png */,
+				4A65600326700AA900609A78 /* spacex.png */,
+				4A65600526700B3200609A78 /* space.png */,
 				4A60DFED266BBF00001F0C5C /* DynamicDataCell.swift */,
 				4A60DFEF266BC30A001F0C5C /* GridViewController.swift */,
 				4A60DFF1266BC7F6001F0C5C /* GridViewDataSource.swift */,
@@ -499,9 +508,12 @@
 			files = (
 				4A6560022670059D00609A78 /* Crew Dragon _ Animation.mp4 in Resources */,
 				4A60DFFF266C0AA5001F0C5C /* —Pngtree—astronaut_2617941.png in Resources */,
+				4A65600826700BD300609A78 /* placeholder_logo.png in Resources */,
 				4A4AB3C52668ED0900473A81 /* LaunchScreen.storyboard in Resources */,
 				4A4AB3C22668ED0900473A81 /* Assets.xcassets in Resources */,
 				4A60DFFB266BD574001F0C5C /* GridViewCell.xib in Resources */,
+				4A65600426700AA900609A78 /* spacex.png in Resources */,
+				4A65600626700B3200609A78 /* space.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

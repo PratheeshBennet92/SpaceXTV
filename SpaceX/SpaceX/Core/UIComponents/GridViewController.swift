@@ -33,7 +33,7 @@ class GridViewController<Cell: DynamicDataCell, DataType: JSONEncodable>: UIView
     self.collectionView.showsVerticalScrollIndicator = false
     if let flowLayout = self.collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
         flowLayout.scrollDirection = .horizontal
-        flowLayout.itemSize = CGSize(width: 600, height: 450)
+        flowLayout.itemSize = CGSize(width: 600, height: 300)
         //flowLayout.itemSize = UICollectionViewFlowLayout.automaticSize
         //flowLayout.estimatedItemSize = CGSize(width: 600, height: 300)
     }
@@ -71,7 +71,7 @@ class GridViewController<Cell: DynamicDataCell, DataType: JSONEncodable>: UIView
     }).disposed(by: disposeBag)
   }
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-    return CGSize(width: 600, height: 450)
+    return CGSize(width: 600, height: 300)
   }
   
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {

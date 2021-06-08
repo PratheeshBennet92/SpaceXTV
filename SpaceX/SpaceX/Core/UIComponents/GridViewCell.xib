@@ -14,15 +14,17 @@
                 <rect key="frame" x="0.0" y="0.0" width="600" height="336"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" image="—Pngtree—astronaut_2617941" translatesAutoresizingMaskIntoConstraints="NO" id="h5E-T5-My6">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="280"/>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" image="placeholder_logo" translatesAutoresizingMaskIntoConstraints="NO" id="h5E-T5-My6">
+                        <rect key="frame" x="10" y="68" width="200" height="200"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="200" id="LnH-tC-DVH"/>
+                            <constraint firstAttribute="width" constant="200" id="XzJ-vP-52l"/>
+                        </constraints>
                         <edgeInsets key="layoutMargins" top="0.0" left="0.0" bottom="0.0" right="0.0"/>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HoL-5F-cgZ">
-                        <rect key="frame" x="20" y="280" width="580" height="46"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="46" id="89G-3N-sVK"/>
-                        </constraints>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HoL-5F-cgZ">
+                        <rect key="frame" x="235" y="10" width="365" height="316"/>
                         <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
@@ -31,13 +33,12 @@
             </view>
             <color key="backgroundColor" red="0.1176470593" green="0.1176470593" blue="0.1176470593" alpha="1" colorSpace="deviceRGB"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="HoL-5F-cgZ" secondAttribute="trailing" id="BUN-Uo-FJD"/>
-                <constraint firstAttribute="leading" secondItem="h5E-T5-My6" secondAttribute="leading" id="YSz-lj-TW6"/>
-                <constraint firstAttribute="trailing" secondItem="h5E-T5-My6" secondAttribute="trailing" id="iO6-aa-Q1d"/>
-                <constraint firstAttribute="bottom" secondItem="HoL-5F-cgZ" secondAttribute="bottom" constant="10" id="wvD-df-3xi"/>
-                <constraint firstAttribute="leading" secondItem="HoL-5F-cgZ" secondAttribute="leading" constant="-20" id="xRE-wz-fWQ"/>
-                <constraint firstItem="HoL-5F-cgZ" firstAttribute="top" secondItem="h5E-T5-My6" secondAttribute="bottom" id="z9J-bk-Wlx"/>
-                <constraint firstAttribute="top" secondItem="h5E-T5-My6" secondAttribute="top" id="zW5-BC-egG"/>
+                <constraint firstItem="HoL-5F-cgZ" firstAttribute="leading" secondItem="h5E-T5-My6" secondAttribute="trailing" constant="25" id="F00-cm-M9u"/>
+                <constraint firstItem="HoL-5F-cgZ" firstAttribute="top" secondItem="Rz2-K0-ksD" secondAttribute="top" constant="10" id="LST-Jy-BjT"/>
+                <constraint firstAttribute="leading" secondItem="h5E-T5-My6" secondAttribute="leading" constant="-10" id="YSz-lj-TW6"/>
+                <constraint firstItem="h5E-T5-My6" firstAttribute="centerY" secondItem="Rz2-K0-ksD" secondAttribute="centerY" id="eoL-GU-jIq"/>
+                <constraint firstAttribute="trailing" secondItem="HoL-5F-cgZ" secondAttribute="trailing" id="n9G-Ee-aam"/>
+                <constraint firstItem="HoL-5F-cgZ" firstAttribute="centerY" secondItem="h5E-T5-My6" secondAttribute="centerY" id="s47-Tk-CfA"/>
             </constraints>
             <edgeInsets key="layoutMargins" top="0.0" left="0.0" bottom="0.0" right="0.0"/>
             <size key="customSize" width="755" height="431"/>
@@ -49,6 +50,6 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="—Pngtree—astronaut_2617941" width="480" height="480"/>
+        <image name="placeholder_logo" width="200" height="200"/>
     </resources>
 </document>
