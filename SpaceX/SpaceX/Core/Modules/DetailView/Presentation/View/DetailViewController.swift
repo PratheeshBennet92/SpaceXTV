@@ -37,6 +37,7 @@ class DetailViewController: UIViewController {
     containerView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: .zero).isActive = true
   }
   private func addImageGrid() {
+    containerView.addArrangedSubview(createLabel(text: "Mission Gallery"))
     gridViewImages.view.translatesAutoresizingMaskIntoConstraints  = false
     self.addChild(gridViewImages)
     containerView.addArrangedSubview(gridViewImages.view)

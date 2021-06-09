@@ -52,9 +52,9 @@ class HomeViewController: UIViewController {
       guard let self = self else {
         return
       }
-      let vc = DetailViewController()
-      vc.selectedMission = response
-      self.navigationController?.pushViewController(vc, animated: true)
+      let detailView = DetailViewController()
+      detailView.selectedMission = response
+      self.navigationController?.pushViewController(detailView, animated: true)
     }
   }
   private func addSatelliteGrid() {
@@ -65,7 +65,12 @@ class HomeViewController: UIViewController {
     containerView.addArrangedSubview(gridViewSatellite.view)
     gridViewSatellite.didMove(toParent: self)
     gridViewSatellite.selectionCallBack = { [weak self] response in
-      
+      guard let self = self else {
+        return
+      }
+      let detailView = DetailViewController()
+      detailView.selectedMission = response
+      self.navigationController?.pushViewController(detailView, animated: true)
     }
   }
   private func addContainerView() {
