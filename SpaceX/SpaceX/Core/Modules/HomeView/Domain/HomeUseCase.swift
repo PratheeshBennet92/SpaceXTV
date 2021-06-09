@@ -6,6 +6,7 @@ class HomeUseCase: UseCaseProtocol {
   var dataRepository: DataRepositoryProtocol?
   var response =  BehaviorRelay<JSONEncodable?>(value: nil)
   let disposeBag = DisposeBag()
+  var payloadType: PayloadType?
   func executeUseCase() {
     dataRepository = HomeDataRepository()
     addObserver()
@@ -16,7 +17,11 @@ class HomeUseCase: UseCaseProtocol {
       responseObj != nil
     }).subscribe(onNext: { [weak self] (response) in
       guard let self = self else {return}
-      self.response.accept(response)
+      var result: JSONEncodable?
+      result = (response as? [JSONEncodable])?.filter({ each in
+          (each as? LaunchlistQuery.Data.LaunchesPast)?.rocket?.secondStage?.payloads?.first??.payloadType == self.payloadType?.rawValue
+        })
+      self.response.accept(result)
     }).disposed(by: disposeBag)
   }
   deinit {

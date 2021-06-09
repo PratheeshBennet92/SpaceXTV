@@ -11,14 +11,14 @@ class GridViewController<Cell: DynamicDataCell, DataType: JSONEncodable>: UIView
   var delegate: GridViewDelegate?
   let disposeBag: DisposeBag = DisposeBag()
   lazy var collectionView: UICollectionView = {
-//    let layout:UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-//    layout.scrollDirection = UICollectionView.ScrollDirection.horizontal
+    //let layout:UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+    //layout.scrollDirection = UICollectionView.ScrollDirection.horizontal
     
     let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
             layout.sectionInset = UIEdgeInsets(top: 20, left: 0, bottom: 10, right: 0)
-    layout.itemSize = CGSize(width: UIScreen.main.bounds.width/3, height: UIScreen.main.bounds.height/3)
-            layout.minimumInteritemSpacing = 20
-            layout.minimumLineSpacing = 20
+    //layout.itemSize = CGSize(width: UIScreen.main.bounds.width/3, height: UIScreen.main.bounds.height/3)
+            layout.minimumInteritemSpacing = 10
+            layout.minimumLineSpacing = 10
             //collectionView!.collectionViewLayout = layout
     
     let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
@@ -28,6 +28,7 @@ class GridViewController<Cell: DynamicDataCell, DataType: JSONEncodable>: UIView
   }()
   private func configureCollectionView() {
     self.collectionView.contentInsetAdjustmentBehavior = .never
+    self.collectionView.register(UINib(nibName: String(describing: HeaderView.self), bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier:String(describing: HeaderView.self))
     self.collectionView.register(UINib(nibName: String(describing:  GridViewCell.self), bundle: nil), forCellWithReuseIdentifier: String(describing:  GridViewCell.self))
     self.collectionView.showsHorizontalScrollIndicator = false
     self.collectionView.showsVerticalScrollIndicator = false
@@ -46,8 +47,6 @@ class GridViewController<Cell: DynamicDataCell, DataType: JSONEncodable>: UIView
   }
   override func viewDidLoad() {
     super.viewDidLoad()
-//    self.automaticallyAdjustsScrollViewInsets = false
-//    self.edgesForExtendedLayout = UIRectEdge.all
     collectionView.contentInset = UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 0)
     configureCollectionView()
     addGridView()
@@ -61,12 +60,13 @@ class GridViewController<Cell: DynamicDataCell, DataType: JSONEncodable>: UIView
     collectionView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: .zero).isActive = true
     collectionView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: .zero).isActive = true
     collectionView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: .zero).isActive = true
-    collectionView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: .zero).isActive = true
+    collectionView.heightAnchor.constraint(equalToConstant: 350).isActive = true
+    //collectionView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: .zero).isActive = true
   }
   func addObserver() {
     viewModel?.response.subscribe(onNext: { [weak self] (responseObj) in
       guard let self  = self else {return}
-      self.dataSource?.dataSource = (responseObj as? [LaunchlistQuery.Data.LaunchesPast?]?) as? [JSONEncodable]
+      self.dataSource?.dataSource = responseObj as? [JSONEncodable]
       self.collectionView.reloadData()
     }).disposed(by: disposeBag)
   }
@@ -77,7 +77,6 @@ class GridViewController<Cell: DynamicDataCell, DataType: JSONEncodable>: UIView
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
          return UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
       }
-
 }
 extension GridViewController: GridCallBacK {
   func didSelectionOfItem(_ indexPath: IndexPath) {

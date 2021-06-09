@@ -1,5 +1,6 @@
 query LAUNCHLIST {
-  launchesPast(limit: 10) {
+  launchesPast(limit: 100) {
+    mission_name
     launch_date_local
     launch_site {
       site_name_long
@@ -10,6 +11,18 @@ query LAUNCHLIST {
       flickr_images
       mission_patch
     }
-    mission_name
+    rocket {
+      rocket_name
+      second_stage {
+        payloads {
+          payload_type
+          payload_mass_lbs
+          payload_mass_kg
+        }
+      }
+    }
+    details
   }
- }
+}
+
+     

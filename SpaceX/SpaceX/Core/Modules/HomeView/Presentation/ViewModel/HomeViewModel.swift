@@ -4,12 +4,14 @@ import RxCocoa
 import Apollo
 class HomeViewModel: ViewModelProtocol {
   var useCase: UseCaseProtocol?
+  var payloadType: PayloadType?
   var outputModel: [JSONEncodable]?
   let disposeBag = DisposeBag()
   var response = BehaviorRelay<JSONEncodable?>(value: nil)
   var error = BehaviorRelay<Codable?>(value: nil)
   func startViewModel() {
     useCase = HomeUseCase()
+    (useCase as? HomeUseCase)?.payloadType = payloadType
     addObserver()
     useCase?.executeUseCase()
   }

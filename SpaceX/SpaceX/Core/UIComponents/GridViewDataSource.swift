@@ -10,6 +10,9 @@ class GridViewDataSource<Cell: DynamicDataCell, DataType: JSONEncodable>: NSObje
   init(delegate: GridItemCallBacK) {
     self.delegate = delegate
   }
+  func numberOfSections(in collectionView: UICollectionView) -> Int {
+    return 1
+  }
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
       return dataSource?.count ?? 5
   }

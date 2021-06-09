@@ -32,5 +32,4 @@ class GridViewDelegate: NSObject, UICollectionViewDelegate {
         collectionView.scrollToItem(at: indexPath, at: [.centeredHorizontally, .centeredVertically], animated: true)
       }
   }
-
 }
