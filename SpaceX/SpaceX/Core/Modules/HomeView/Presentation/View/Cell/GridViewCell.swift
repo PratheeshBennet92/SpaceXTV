@@ -13,6 +13,7 @@ class GridViewCell: UICollectionViewCell, DynamicDataCell {
   }
   func configure(_ dataType: LaunchlistQuery.Data.LaunchesPast?) {
     self.title.text = dataType?.missionName
+    imageView.image = nil
     self.imageView.image = UIImage(named: "placeholder_logo.png")
     if let imageUrl = dataType?.links?.missionPatch {
       self.imageView.downloadImageFrom(link: imageUrl, contentMode: .scaleToFill)

@@ -6,6 +6,7 @@ class DetailViewCell: UICollectionViewCell, DynamicDataCell {
   @IBOutlet weak var missionImage: UIImageView!
   @IBOutlet weak var activityLoaded: UIActivityIndicatorView!
   func configure(_ dataType: ImageModel?) {
+    missionImage.image = nil
     if let imageUrl = dataType?.image {
       self.missionImage.downloadImageFrom(link: imageUrl, contentMode: .scaleToFill) {
         self.activityLoaded.stopAnimating()
