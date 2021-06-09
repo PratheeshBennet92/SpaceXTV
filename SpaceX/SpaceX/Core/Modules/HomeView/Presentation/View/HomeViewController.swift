@@ -18,9 +18,18 @@ class HomeViewController: UIViewController {
     view.view.translatesAutoresizingMaskIntoConstraints  = false
     return view
   }()
-  
+  private var containerView: UIStackView = {
+    let stackView = UIStackView()
+    stackView.translatesAutoresizingMaskIntoConstraints = false
+    stackView.axis = .vertical
+    stackView.spacing = UIStackView.spacingUseSystem
+    stackView.isLayoutMarginsRelativeArrangement = true
+    stackView.directionalLayoutMargins = NSDirectionalEdgeInsets(top: 20, leading: 20, bottom: 20, trailing: 20)
+    return stackView
+  }()
   override func viewDidLoad() {
     super.viewDidLoad()
+    addContainerView()
     addCrewGrid()
     addSatelliteGrid()
     setSatellite()
@@ -40,25 +49,36 @@ class HomeViewController: UIViewController {
     gridViewSatellite.setupViewModel()
   }
   private func addCrewGrid() {
+    containerView.addArrangedSubview(createLabel(text: PayloadType.CrewDragon.rawValue))
     gridViewCrew.view.translatesAutoresizingMaskIntoConstraints  = false
     self.addChild(gridViewCrew)
-    self.view.addSubview(gridViewCrew.view)
-    gridViewCrew.view.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: .zero).isActive = true
-    gridViewCrew.view.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: .zero).isActive = true
-    gridViewCrew.view.topAnchor.constraint(equalTo: self.view.topAnchor, constant: .zero).isActive = true
     gridViewCrew.view.heightAnchor.constraint(equalToConstant: 350).isActive = true
-    //gridViewCrew.view.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: .zero).isActive = true
+    containerView.addArrangedSubview(gridViewCrew.view)
     gridViewCrew.didMove(toParent: self)
   }
   private func addSatelliteGrid() {
+    containerView.addArrangedSubview(createLabel(text: PayloadType.Satellite.rawValue))
     gridViewSatellite.view.translatesAutoresizingMaskIntoConstraints  = false
     self.addChild(gridViewSatellite)
-    self.view.addSubview(gridViewSatellite.view)
-    gridViewSatellite.view.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: .zero).isActive = true
-    gridViewSatellite.view.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: .zero).isActive = true
-    gridViewSatellite.view.topAnchor.constraint(equalTo: gridViewCrew.view.bottomAnchor, constant: 50).isActive = true
     gridViewSatellite.view.heightAnchor.constraint(equalToConstant: 350).isActive = true
-    //gridViewCrew.view.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: .zero).isActive = true
+    containerView.addArrangedSubview(gridViewSatellite.view)
     gridViewSatellite.didMove(toParent: self)
+  }
+  func addContainerView() {
+    self.view.addSubview(containerView)
+    containerView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: .zero).isActive = true
+    containerView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: 90).isActive = true
+    containerView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: .zero).isActive = true
+    containerView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: .zero).isActive = true
+  }
+  private func createLabel(text: String) -> UILabel {
+    let myLabel = UILabel()
+    myLabel.translatesAutoresizingMaskIntoConstraints = false
+    myLabel.backgroundColor = .clear
+    myLabel.text = text
+    myLabel.textAlignment = .left
+    myLabel.clipsToBounds = true
+    myLabel.heightAnchor.constraint(equalToConstant: 50).isActive = true
+    return myLabel
   }
 }

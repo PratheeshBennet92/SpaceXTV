@@ -14,7 +14,7 @@ class GridViewDataSource<Cell: DynamicDataCell, DataType: JSONEncodable>: NSObje
     return 1
   }
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-      return dataSource?.count ?? 5
+    return dataSource?.count ?? .zero
   }
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: Cell.self), for: indexPath) as? Cell else {

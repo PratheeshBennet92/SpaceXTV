@@ -10,6 +10,7 @@ class GridViewController<Cell: DynamicDataCell, DataType: JSONEncodable>: UIView
   var dataSource: GridViewDataSource<Cell, DataType>?
   var delegate: GridViewDelegate?
   let disposeBag: DisposeBag = DisposeBag()
+  private var spinner = SpinnerController()
   lazy var collectionView: UICollectionView = {
     //let layout:UICollectionViewFlowLayout = UICollectionViewFlowLayout()
     //layout.scrollDirection = UICollectionView.ScrollDirection.horizontal
@@ -17,8 +18,8 @@ class GridViewController<Cell: DynamicDataCell, DataType: JSONEncodable>: UIView
     let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
             layout.sectionInset = UIEdgeInsets(top: 20, left: 0, bottom: 10, right: 0)
     //layout.itemSize = CGSize(width: UIScreen.main.bounds.width/3, height: UIScreen.main.bounds.height/3)
-            layout.minimumInteritemSpacing = 10
-            layout.minimumLineSpacing = 10
+            layout.minimumInteritemSpacing = 20
+            layout.minimumLineSpacing = 20
             //collectionView!.collectionViewLayout = layout
     
     let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
@@ -50,6 +51,7 @@ class GridViewController<Cell: DynamicDataCell, DataType: JSONEncodable>: UIView
     collectionView.contentInset = UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 0)
     configureCollectionView()
     addGridView()
+    startSpinner()
   }
   func setupViewModel() {
     viewModel?.startViewModel()
@@ -66,6 +68,7 @@ class GridViewController<Cell: DynamicDataCell, DataType: JSONEncodable>: UIView
   func addObserver() {
     viewModel?.response.subscribe(onNext: { [weak self] (responseObj) in
       guard let self  = self else {return}
+      self.stopSpinner()
       self.dataSource?.dataSource = responseObj as? [JSONEncodable]
       self.collectionView.reloadData()
     }).disposed(by: disposeBag)
@@ -77,6 +80,19 @@ class GridViewController<Cell: DynamicDataCell, DataType: JSONEncodable>: UIView
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
          return UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
       }
+  // MARK: Spinner configuration
+  func stopSpinner() {
+    spinner.willMove(toParent: nil)
+    spinner.view.removeFromSuperview()
+    spinner.removeFromParent()
+  }
+  func startSpinner() {
+    spinner = SpinnerController()
+    addChild(spinner)
+    spinner.view.frame = view.frame
+    view.addSubview(spinner.view)
+    spinner.didMove(toParent: self)
+  }
 }
 extension GridViewController: GridCallBacK {
   func didSelectionOfItem(_ indexPath: IndexPath) {

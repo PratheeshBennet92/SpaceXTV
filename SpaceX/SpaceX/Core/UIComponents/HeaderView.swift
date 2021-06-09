@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HeaderView: UICollectionReusableView {
+class HeaderView: UIView {
   @IBOutlet weak var lblHeader: UILabel!
   
 }
