@@ -11,12 +11,14 @@ class GridViewCell: UICollectionViewCell, DynamicDataCell {
 
       contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0))
   }
-  func configure(_ dataType: LaunchlistQuery.Data.LaunchesPast?) {
+  func configure(_ dataType: LaunchlistQuery.Data.LaunchesPast?, imageDownload: ((Data) -> Void)?) {
     self.title.text = dataType?.missionName
     imageView.image = nil
     self.imageView.image = UIImage(named: "placeholder_logo.png")
     if let imageUrl = dataType?.links?.missionPatch {
-      self.imageView.downloadImageFrom(link: imageUrl, contentMode: .scaleToFill)
+      self.imageView.downloadImageFrom(link: imageUrl, contentMode: .scaleToFill) { data in
+        imageDownload?(data)
+      }
     } else {
       self.imageView.image = UIImage(named: "placeholder_logo.png")
     }
