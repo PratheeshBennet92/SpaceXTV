@@ -6,7 +6,7 @@ extension UIImageView {
             DispatchQueue.main.async {
                 self.contentMode =  contentMode
                 if let data = data {
-                  self.image = UIImage(data: data)
+                  //self.image = UIImage(data: data)
                   completion?(data)
                 }
             }
