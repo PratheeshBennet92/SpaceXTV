@@ -11,9 +11,10 @@ class DetailViewController: UIViewController {
     let stackView = UIStackView()
     stackView.translatesAutoresizingMaskIntoConstraints = false
     stackView.axis = .vertical
+    stackView.distribution = .fillProportionally
     stackView.spacing = UIStackView.spacingUseSystem
     stackView.isLayoutMarginsRelativeArrangement = true
-    stackView.directionalLayoutMargins = NSDirectionalEdgeInsets(top: 20, leading: 20, bottom: 20, trailing: 20)
+    stackView.directionalLayoutMargins = NSDirectionalEdgeInsets(top: -100, leading: 20, bottom: 20, trailing: 20)
     return stackView
   }()
   override func viewDidLoad() {
@@ -21,6 +22,7 @@ class DetailViewController: UIViewController {
     addContainerView()
     addImageGrid()
     setImageGrid()
+    addDetails()
   }
   private func setImageGrid() {
     if let images = (selectedMission as? LaunchlistQuery.Data.LaunchesPast)?.links?.flickrImages {
@@ -43,11 +45,18 @@ class DetailViewController: UIViewController {
     containerView.addArrangedSubview(gridViewImages.view)
     gridViewImages.didMove(toParent: self)
   }
-  private func createLabel(text: String) -> UILabel {
+  private func addDetails() {
+    let label = createLabel(text: (selectedMission as? LaunchlistQuery.Data.LaunchesPast)?.details ?? "", font: UIFont.systemFont(ofSize: 28.0))
+    containerView.addArrangedSubview(label)
+  }
+  private func createLabel(text: String, font: UIFont = UIFont.boldSystemFont(ofSize: 34.0) ) -> UILabel {
     let myLabel = UILabel()
+    myLabel.font = font
     myLabel.translatesAutoresizingMaskIntoConstraints = false
     myLabel.backgroundColor = .clear
     myLabel.text = text
+    myLabel.numberOfLines = 0
+    myLabel.lineBreakMode = .byWordWrapping
     myLabel.textAlignment = .left
     myLabel.clipsToBounds = true
     myLabel.heightAnchor.constraint(equalToConstant: 50).isActive = true

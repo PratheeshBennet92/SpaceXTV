@@ -53,7 +53,7 @@ class GridViewController<Cell: DynamicDataCell, DataType: JSONEncodable>: UIView
     collectionView.contentInset = UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 0)
     configureCollectionView()
     addGridView()
-    //startSpinner()
+    startSpinner()
   }
   func setupViewModel() {
     viewModel?.startViewModel()
@@ -70,7 +70,7 @@ class GridViewController<Cell: DynamicDataCell, DataType: JSONEncodable>: UIView
   func addObserver() {
     viewModel?.response.subscribe(onNext: { [weak self] (responseObj) in
       guard let self  = self else {return}
-      //self.stopSpinner()
+      self.stopSpinner()
       self.dataSource?.dataSource = responseObj as? [JSONEncodable]
       self.collectionView.reloadData()
     }).disposed(by: disposeBag)
