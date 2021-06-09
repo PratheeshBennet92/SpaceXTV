@@ -94,4 +94,11 @@ class HomeViewController: UIViewController {
     myLabel.heightAnchor.constraint(equalToConstant: 50).isActive = true
     return myLabel
   }
+  func showActivityIndicatory() -> UIActivityIndicatorView {
+      let activityView = UIActivityIndicatorView(style: .large)
+      activityView.center = self.view.center
+      self.view.addSubview(activityView)
+      activityView.startAnimating()
+      return activityView
+  }
 }

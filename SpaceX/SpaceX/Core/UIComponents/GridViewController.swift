@@ -11,7 +11,7 @@ class GridViewController<Cell: DynamicDataCell, DataType: JSONEncodable>: UIView
   var dataSource: GridViewDataSource<Cell, DataType>?
   var delegate: GridViewDelegate?
   let disposeBag: DisposeBag = DisposeBag()
-  private var spinner = SpinnerController()
+  private let activityView = UIActivityIndicatorView(style: .large)
   lazy var collectionView: UICollectionView = {
     //let layout:UICollectionViewFlowLayout = UICollectionViewFlowLayout()
     //layout.scrollDirection = UICollectionView.ScrollDirection.horizontal
@@ -70,7 +70,9 @@ class GridViewController<Cell: DynamicDataCell, DataType: JSONEncodable>: UIView
   func addObserver() {
     viewModel?.response.subscribe(onNext: { [weak self] (responseObj) in
       guard let self  = self else {return}
+      if responseObj != nil {
       self.stopSpinner()
+      }
       self.dataSource?.dataSource = responseObj as? [JSONEncodable]
       self.collectionView.reloadData()
     }).disposed(by: disposeBag)
@@ -84,16 +86,15 @@ class GridViewController<Cell: DynamicDataCell, DataType: JSONEncodable>: UIView
       }
   // MARK: Spinner configuration
   func stopSpinner() {
-    spinner.willMove(toParent: nil)
-    spinner.view.removeFromSuperview()
-    spinner.removeFromParent()
+    activityView.stopAnimating()
+    activityView.removeFromSuperview()
   }
   func startSpinner() {
-    spinner = SpinnerController()
-    addChild(spinner)
-    spinner.view.frame = view.frame
-    view.addSubview(spinner.view)
-    spinner.didMove(toParent: self)
+    activityView.hidesWhenStopped = true
+    activityView.center.x = self.view.center.x - 50
+    activityView.center.y = self.view.center.y/3
+    self.view.addSubview(activityView)
+    activityView.startAnimating()
   }
 }
 extension GridViewController: GridCallBacK {

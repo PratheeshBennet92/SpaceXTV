@@ -40,7 +40,6 @@
 		4A6DD5962670C7AC00B5DCFC /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6DD5942670C7AC00B5DCFC /* HeaderView.swift */; };
 		4A6DD5972670C7AC00B5DCFC /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A6DD5952670C7AC00B5DCFC /* HeaderView.xib */; };
 		4A6DD5992670EC2500B5DCFC /* PayloadType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6DD5982670EC2500B5DCFC /* PayloadType.swift */; };
-		4A6DD59B2670FA8100B5DCFC /* SpinnerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6DD59A2670FA8100B5DCFC /* SpinnerController.swift */; };
 		4A6DD59F2671077100B5DCFC /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6DD59D2671077100B5DCFC /* DetailViewController.swift */; };
 		4A6DD5A926710D0B00B5DCFC /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6DD5A826710D0B00B5DCFC /* DetailViewModel.swift */; };
 		4A6DD5AC2671105600B5DCFC /* DetailViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6DD5AA2671105600B5DCFC /* DetailViewCell.swift */; };
@@ -110,7 +109,6 @@
 		4A6DD5942670C7AC00B5DCFC /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		4A6DD5952670C7AC00B5DCFC /* HeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderView.xib; sourceTree = "<group>"; };
 		4A6DD5982670EC2500B5DCFC /* PayloadType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayloadType.swift; sourceTree = "<group>"; };
-		4A6DD59A2670FA8100B5DCFC /* SpinnerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpinnerController.swift; sourceTree = "<group>"; };
 		4A6DD59D2671077100B5DCFC /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		4A6DD5A826710D0B00B5DCFC /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		4A6DD5AA2671105600B5DCFC /* DetailViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewCell.swift; sourceTree = "<group>"; };
@@ -368,7 +366,6 @@
 		4A60DFEC266BBEE0001F0C5C /* UIComponents */ = {
 			isa = PBXGroup;
 			children = (
-				4A6DD59A2670FA8100B5DCFC /* SpinnerController.swift */,
 				4A60DFED266BBF00001F0C5C /* DynamicDataCell.swift */,
 				4A60DFEF266BC30A001F0C5C /* GridViewController.swift */,
 				4A60DFF1266BC7F6001F0C5C /* GridViewDataSource.swift */,
@@ -724,7 +721,6 @@
 				4A60DFF7266BCE51001F0C5C /* GridViewDelegate.swift in Sources */,
 				4A497A07266AAFE400541FD7 /* CoreProtocols.swift in Sources */,
 				4A4AB3BB2668ED0800473A81 /* AppDelegate.swift in Sources */,
-				4A6DD59B2670FA8100B5DCFC /* SpinnerController.swift in Sources */,
 				4A6DD5A926710D0B00B5DCFC /* DetailViewModel.swift in Sources */,
 				4A497A15266AB96E00541FD7 /* HomeUseCase.swift in Sources */,
 				4A60DFF0266BC30A001F0C5C /* GridViewController.swift in Sources */,
