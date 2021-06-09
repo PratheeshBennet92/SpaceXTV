@@ -1,10 +1,3 @@
-//
-//  HomeViewController.swift
-//  SpaceX
-//
-//  Created by Pratheesh on 6/5/21.
-//
-
 import UIKit
 import Apollo
 class HomeViewController: UIViewController {
@@ -55,6 +48,14 @@ class HomeViewController: UIViewController {
     gridViewCrew.view.heightAnchor.constraint(equalToConstant: 350).isActive = true
     containerView.addArrangedSubview(gridViewCrew.view)
     gridViewCrew.didMove(toParent: self)
+    gridViewCrew.selectionCallBack = { [weak self] response in
+      guard let self = self else {
+        return
+      }
+      let vc = DetailViewController()
+      vc.selectedMission = response
+      self.navigationController?.pushViewController(vc, animated: true)
+    }
   }
   private func addSatelliteGrid() {
     containerView.addArrangedSubview(createLabel(text: PayloadType.Satellite.rawValue))
@@ -63,8 +64,11 @@ class HomeViewController: UIViewController {
     gridViewSatellite.view.heightAnchor.constraint(equalToConstant: 350).isActive = true
     containerView.addArrangedSubview(gridViewSatellite.view)
     gridViewSatellite.didMove(toParent: self)
+    gridViewSatellite.selectionCallBack = { [weak self] response in
+      
+    }
   }
-  func addContainerView() {
+  private func addContainerView() {
     self.view.addSubview(containerView)
     containerView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: .zero).isActive = true
     containerView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: 90).isActive = true

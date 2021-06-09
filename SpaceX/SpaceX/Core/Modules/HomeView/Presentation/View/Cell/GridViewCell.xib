@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.AppleTV.XIB" version="3.0" toolsVersion="18122" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="appleTV" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell autoresizesSubviews="NO" opaque="NO" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="GridViewCell" translatesAutoresizingMaskIntoConstraints="NO" id="Rz2-K0-ksD" customClass="GridViewCell" customModule="SpaceX" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="336"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="600" height="336"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" image="placeholder_logo" translatesAutoresizingMaskIntoConstraints="NO" id="h5E-T5-My6">
+                        <rect key="frame" x="10" y="68" width="200" height="200"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="200" id="LnH-tC-DVH"/>
+                            <constraint firstAttribute="width" constant="200" id="XzJ-vP-52l"/>
+                        </constraints>
+                        <edgeInsets key="layoutMargins" top="0.0" left="0.0" bottom="0.0" right="0.0"/>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HoL-5F-cgZ">
+                        <rect key="frame" x="235" y="10" width="365" height="316"/>
+                        <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <color key="backgroundColor" red="0.1176470593" green="0.1176470593" blue="0.1176470593" alpha="1" colorSpace="deviceRGB"/>
+            <constraints>
+                <constraint firstItem="HoL-5F-cgZ" firstAttribute="leading" secondItem="h5E-T5-My6" secondAttribute="trailing" constant="25" id="F00-cm-M9u"/>
+                <constraint firstItem="HoL-5F-cgZ" firstAttribute="top" secondItem="Rz2-K0-ksD" secondAttribute="top" constant="10" id="LST-Jy-BjT"/>
+                <constraint firstAttribute="leading" secondItem="h5E-T5-My6" secondAttribute="leading" constant="-10" id="YSz-lj-TW6"/>
+                <constraint firstItem="h5E-T5-My6" firstAttribute="centerY" secondItem="Rz2-K0-ksD" secondAttribute="centerY" id="eoL-GU-jIq"/>
+                <constraint firstAttribute="trailing" secondItem="HoL-5F-cgZ" secondAttribute="trailing" id="n9G-Ee-aam"/>
+                <constraint firstItem="HoL-5F-cgZ" firstAttribute="centerY" secondItem="h5E-T5-My6" secondAttribute="centerY" id="s47-Tk-CfA"/>
+            </constraints>
+            <edgeInsets key="layoutMargins" top="0.0" left="0.0" bottom="0.0" right="0.0"/>
+            <size key="customSize" width="755" height="431"/>
+            <connections>
+                <outlet property="imageView" destination="h5E-T5-My6" id="iHp-jm-RK1"/>
+                <outlet property="title" destination="HoL-5F-cgZ" id="Wzx-Ub-HrU"/>
+            </connections>
+            <point key="canvasLocation" x="316" y="124"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="placeholder_logo" width="200" height="200"/>
+    </resources>
+</document>

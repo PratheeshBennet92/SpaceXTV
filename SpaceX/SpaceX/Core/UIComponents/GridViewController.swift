@@ -6,6 +6,7 @@ import AVFoundation
 import AVKit
 import XCDYouTubeKit
 class GridViewController<Cell: DynamicDataCell, DataType: JSONEncodable>: UIViewController, UINavigationControllerDelegate, UICollectionViewDelegateFlowLayout, UIScrollViewDelegate where Cell: UICollectionViewCell {
+  var selectionCallBack: ((JSONEncodable?) -> Void)?
   var viewModel: ViewModelProtocol?
   var dataSource: GridViewDataSource<Cell, DataType>?
   var delegate: GridViewDelegate?
@@ -31,6 +32,7 @@ class GridViewController<Cell: DynamicDataCell, DataType: JSONEncodable>: UIView
     self.collectionView.contentInsetAdjustmentBehavior = .never
     self.collectionView.register(UINib(nibName: String(describing: HeaderView.self), bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier:String(describing: HeaderView.self))
     self.collectionView.register(UINib(nibName: String(describing:  GridViewCell.self), bundle: nil), forCellWithReuseIdentifier: String(describing:  GridViewCell.self))
+    self.collectionView.register(UINib(nibName: String(describing:  DetailViewCell.self), bundle: nil), forCellWithReuseIdentifier: String(describing:  DetailViewCell.self))
     self.collectionView.showsHorizontalScrollIndicator = false
     self.collectionView.showsVerticalScrollIndicator = false
     if let flowLayout = self.collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
@@ -51,7 +53,7 @@ class GridViewController<Cell: DynamicDataCell, DataType: JSONEncodable>: UIView
     collectionView.contentInset = UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 0)
     configureCollectionView()
     addGridView()
-    startSpinner()
+    //startSpinner()
   }
   func setupViewModel() {
     viewModel?.startViewModel()
@@ -68,7 +70,7 @@ class GridViewController<Cell: DynamicDataCell, DataType: JSONEncodable>: UIView
   func addObserver() {
     viewModel?.response.subscribe(onNext: { [weak self] (responseObj) in
       guard let self  = self else {return}
-      self.stopSpinner()
+      //self.stopSpinner()
       self.dataSource?.dataSource = responseObj as? [JSONEncodable]
       self.collectionView.reloadData()
     }).disposed(by: disposeBag)
@@ -97,6 +99,7 @@ class GridViewController<Cell: DynamicDataCell, DataType: JSONEncodable>: UIView
 extension GridViewController: GridCallBacK {
   func didSelectionOfItem(_ indexPath: IndexPath) {
     print("Item selected")
+    selectionCallBack?(self.dataSource?.dataSource?[indexPath.row])
     
     guard let path = Bundle.main.path(forResource: "Crew Dragon _ Animation", ofType:"mp4") else {
                debugPrint("video.m4v not found")
@@ -105,9 +108,9 @@ extension GridViewController: GridCallBacK {
            let player = AVPlayer(url: URL(fileURLWithPath: path))
            let playerController = AVPlayerViewController()
            playerController.player = player
-           present(playerController, animated: true) {
-               player.play()
-           }
+//           present(playerController, animated: true) {
+//               player.play()
+//           }
   }
 }
       
