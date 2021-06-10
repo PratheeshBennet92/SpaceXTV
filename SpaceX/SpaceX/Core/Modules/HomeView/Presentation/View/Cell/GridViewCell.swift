@@ -16,7 +16,7 @@ class GridViewCell: UICollectionViewCell, DynamicDataCell {
     imageView.image = nil
     self.imageView.image = UIImage(named: "placeholder_logo.png")
     if let imageUrl = dataType?.links?.missionPatch {
-      self.imageView.setImage(url: imageUrl) {
+      self.imageView.setImage(url: imageUrl, placeholderImage: UIImage(named: "placeholder_logo")) {
         
       }
     } else {

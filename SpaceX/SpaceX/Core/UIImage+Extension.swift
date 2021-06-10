@@ -1,7 +1,7 @@
 import UIKit
 extension UIImageView {
   private static var urlStore = [String:String]()
-  func setImage(url: String, placeholderImage: UIImage? = UIImage(named: "placeholder_logo"), completion: (() -> Void)?) {
+  func setImage(url: String, placeholderImage: UIImage? = nil, completion: (() -> Void)?) {
     /*Unique to each instance*/
     let tmpAddress = String(format: "%p", unsafeBitCast(self, to: Int.self))
     UIImageView.urlStore[tmpAddress] = url
@@ -14,6 +14,7 @@ extension UIImageView {
     AsyncImageLoader().downloadAndCacheImage(url: url, onSuccess: { (image, url) in
       DispatchQueue.main.async {
         if UIImageView.urlStore[tmpAddress] == url {
+          self.contentMode = .scaleToFill;
           self.image = image
           self.backgroundColor = .clear
           completion?()
