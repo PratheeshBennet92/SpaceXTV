@@ -1,15 +1,25 @@
 import UIKit
 extension UIImageView {
-  func downloadImageFrom(link:String, contentMode: UIView.ContentMode, completion: ((Data) -> Void)? = nil) {
-        URLSession.shared.dataTask( with: NSURL(string:link)! as URL, completionHandler: {
-            (data, response, error) -> Void in
-            DispatchQueue.main.async {
-                self.contentMode =  contentMode
-                if let data = data {
-                  //self.image = UIImage(data: data)
-                  completion?(data)
-                }
-            }
-        }).resume()
+  private static var urlStore = [String:String]()
+  func setImage(url: String, placeholderImage: UIImage? = UIImage(named: "placeholder_logo"), completion: (() -> Void)?) {
+    /*Unique to each instance*/
+    let tmpAddress = String(format: "%p", unsafeBitCast(self, to: Int.self))
+    UIImageView.urlStore[tmpAddress] = url
+    
+    if let image = placeholderImage {
+      self.image = image
+    } else{
+      self.backgroundColor = .gray
     }
+    AsyncImageLoader().downloadAndCacheImage(url: url, onSuccess: { (image, url) in
+      DispatchQueue.main.async {
+        if UIImageView.urlStore[tmpAddress] == url {
+          self.image = image
+          self.backgroundColor = .clear
+          completion?()
+        }
+      }
+    }) { error in
+    }
+  }
 }

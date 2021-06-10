@@ -27,6 +27,8 @@
 		4A4AB3DB2668ED0900473A81 /* SpaceXUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4AB3DA2668ED0900473A81 /* SpaceXUITests.swift */; };
 		4A4B91B7266D0DAB00784100 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4B91B6266D0DAB00784100 /* UIImage+Extension.swift */; };
 		4A4B91BD266D5DD000784100 /* XCDYouTubeKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A4B91BC266D5DD000784100 /* XCDYouTubeKit.framework */; };
+		4A5FD2232672464D0094CD7F /* AsyncImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5FD2222672464D0094CD7F /* AsyncImageLoader.swift */; };
+		4A5FD225267246860094CD7F /* AsyncImageLoaderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5FD224267246860094CD7F /* AsyncImageLoaderManager.swift */; };
 		4A60DFEE266BBF00001F0C5C /* DynamicDataCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A60DFED266BBF00001F0C5C /* DynamicDataCell.swift */; };
 		4A60DFF0266BC30A001F0C5C /* GridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A60DFEF266BC30A001F0C5C /* GridViewController.swift */; };
 		4A60DFF2266BC7F6001F0C5C /* GridViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A60DFF1266BC7F6001F0C5C /* GridViewDataSource.swift */; };
@@ -96,6 +98,8 @@
 		4A4AB3DC2668ED0900473A81 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4A4B91B6266D0DAB00784100 /* UIImage+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		4A4B91BC266D5DD000784100 /* XCDYouTubeKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = XCDYouTubeKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4A5FD2222672464D0094CD7F /* AsyncImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AsyncImageLoader.swift; path = ../../../../../../../AsyncImageLoader.swift; sourceTree = "<group>"; };
+		4A5FD224267246860094CD7F /* AsyncImageLoaderManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImageLoaderManager.swift; sourceTree = "<group>"; };
 		4A60DFED266BBF00001F0C5C /* DynamicDataCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicDataCell.swift; sourceTree = "<group>"; };
 		4A60DFEF266BC30A001F0C5C /* GridViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridViewController.swift; sourceTree = "<group>"; };
 		4A60DFF1266BC7F6001F0C5C /* GridViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridViewDataSource.swift; sourceTree = "<group>"; };
@@ -373,6 +377,8 @@
 				4A60DFF6266BCE51001F0C5C /* GridViewDelegate.swift */,
 				4A6DD5942670C7AC00B5DCFC /* HeaderView.swift */,
 				4A6DD5952670C7AC00B5DCFC /* HeaderView.xib */,
+				4A5FD2222672464D0094CD7F /* AsyncImageLoader.swift */,
+				4A5FD224267246860094CD7F /* AsyncImageLoaderManager.swift */,
 			);
 			path = UIComponents;
 			sourceTree = "<group>";
@@ -718,6 +724,7 @@
 				4A4979E2266AAE3300541FD7 /* API.swift in Sources */,
 				4A6DD5B0267116BF00B5DCFC /* ImageModel.swift in Sources */,
 				4A6DD59F2671077100B5DCFC /* DetailViewController.swift in Sources */,
+				4A5FD2232672464D0094CD7F /* AsyncImageLoader.swift in Sources */,
 				4A60DFF7266BCE51001F0C5C /* GridViewDelegate.swift in Sources */,
 				4A497A07266AAFE400541FD7 /* CoreProtocols.swift in Sources */,
 				4A4AB3BB2668ED0800473A81 /* AppDelegate.swift in Sources */,
@@ -727,6 +734,7 @@
 				4A60DFF2266BC7F6001F0C5C /* GridViewDataSource.swift in Sources */,
 				4A60DFEE266BBF00001F0C5C /* DynamicDataCell.swift in Sources */,
 				4A4B91B7266D0DAB00784100 /* UIImage+Extension.swift in Sources */,
+				4A5FD225267246860094CD7F /* AsyncImageLoaderManager.swift in Sources */,
 				4A497A17266ABA6800541FD7 /* HomeDataRepository.swift in Sources */,
 				4A60DFF5266BC8AA001F0C5C /* CellConfigurator.swift in Sources */,
 				4A60DFFA266BD574001F0C5C /* GridViewCell.swift in Sources */,

@@ -23,6 +23,7 @@ class DetailViewController: UIViewController {
     addImageGrid()
     setImageGrid()
     addDetails()
+    //addRocket()
   }
   private func setImageGrid() {
     if let images = (selectedMission as? LaunchlistQuery.Data.LaunchesPast)?.links?.flickrImages {
@@ -44,6 +45,10 @@ class DetailViewController: UIViewController {
     self.addChild(gridViewImages)
     containerView.addArrangedSubview(gridViewImages.view)
     gridViewImages.didMove(toParent: self)
+  }
+  private func addRocket() {
+    let label = createLabel(text: "Rocket: "+((selectedMission as? LaunchlistQuery.Data.LaunchesPast)?.rocket?.rocketName)! ?? "", font: UIFont.systemFont(ofSize: 28.0))
+    containerView.addArrangedSubview(label)
   }
   private func addDetails() {
     let label = createLabel(text: (selectedMission as? LaunchlistQuery.Data.LaunchesPast)?.details ?? "", font: UIFont.systemFont(ofSize: 28.0))
