@@ -17,7 +17,7 @@ class DetailViewController: UIViewController {
     //stackView.backgroundColor = .yellow
     stackView.translatesAutoresizingMaskIntoConstraints = false
     stackView.axis = .vertical
-    //stackView.distribution = .fill
+    stackView.distribution = .fillProportionally
     stackView.spacing = UIStackView.spacingUseSystem
     stackView.isLayoutMarginsRelativeArrangement = true
     //stackView.directionalLayoutMargins = NSDirectionalEdgeInsets(top: -100, leading: 20, bottom: 20, trailing: 20)
@@ -30,6 +30,7 @@ class DetailViewController: UIViewController {
     addImageGrid()
     setImageGrid()
     addRocket()
+    addLaunchSite()
     addDetails()
   }
   private func setImageGrid() {
@@ -61,9 +62,12 @@ class DetailViewController: UIViewController {
   }
   private func addDetails() {
     let label = createLabel(text: (selectedMission as? LaunchlistQuery.Data.LaunchesPast)?.details ?? "", font: UIFont.systemFont(ofSize: 28.0))
-    label.backgroundColor = .yellow
     label.preferredMaxLayoutWidth = self.view.bounds.width;
-    label.heightAnchor.constraint(equalToConstant: 350).isActive = true
+    containerView.addArrangedSubview(label)
+  }
+  private func addLaunchSite() {
+    let label = createLabel(text: (selectedMission as? LaunchlistQuery.Data.LaunchesPast)?.launchSite?.siteNameLong ?? "", font: UIFont.systemFont(ofSize: 28.0))
+    label.preferredMaxLayoutWidth = self.view.bounds.width;
     containerView.addArrangedSubview(label)
   }
   private func addScrollView() {
@@ -83,7 +87,6 @@ class DetailViewController: UIViewController {
     myLabel.lineBreakMode = .byWordWrapping
     myLabel.textAlignment = .left
     myLabel.clipsToBounds = true
-    myLabel.heightAnchor.constraint(equalToConstant: 50).isActive = true
     return myLabel
   }
 }
