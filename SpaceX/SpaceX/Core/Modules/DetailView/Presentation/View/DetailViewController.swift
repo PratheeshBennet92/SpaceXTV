@@ -17,7 +17,7 @@ class DetailViewController: UIViewController {
     //stackView.backgroundColor = .yellow
     stackView.translatesAutoresizingMaskIntoConstraints = false
     stackView.axis = .vertical
-    stackView.distribution = .fillProportionally
+    //stackView.distribution = .fillProportionally
     stackView.spacing = UIStackView.spacingUseSystem
     stackView.isLayoutMarginsRelativeArrangement = true
     //stackView.directionalLayoutMargins = NSDirectionalEdgeInsets(top: -100, leading: 20, bottom: 20, trailing: 20)
@@ -62,7 +62,7 @@ class DetailViewController: UIViewController {
   }
   private func addDetails() {
     let label = createLabel(text: (selectedMission as? LaunchlistQuery.Data.LaunchesPast)?.details ?? "", font: UIFont.systemFont(ofSize: 28.0))
-    label.preferredMaxLayoutWidth = self.view.bounds.width;
+    //label.preferredMaxLayoutWidth = self.view.bounds.width;
     containerView.addArrangedSubview(label)
   }
   private func addLaunchSite() {
