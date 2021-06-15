@@ -31,6 +31,7 @@ class DetailViewController: UIViewController {
     setImageGrid()
     addRocket()
     addLaunchSite()
+    addLaunchDate()
     addDetails()
   }
   private func setImageGrid() {
@@ -66,7 +67,23 @@ class DetailViewController: UIViewController {
     containerView.addArrangedSubview(label)
   }
   private func addLaunchSite() {
-    let label = createLabel(text: (selectedMission as? LaunchlistQuery.Data.LaunchesPast)?.launchSite?.siteNameLong ?? "", font: UIFont.systemFont(ofSize: 28.0))
+    let label = createLabel(text: "Location: " + ((selectedMission as? LaunchlistQuery.Data.LaunchesPast)?.launchSite?.siteNameLong ?? ""), font: UIFont.systemFont(ofSize: 28.0))
+    label.preferredMaxLayoutWidth = self.view.bounds.width;
+    containerView.addArrangedSubview(label)
+  }
+  private func addLaunchDate() {
+    guard let launchDate = (selectedMission as? LaunchlistQuery.Data.LaunchesPast)?.launchDateLocal  else {
+      return
+    }
+    let string = launchDate
+    let isoFormatter = ISO8601DateFormatter()
+    guard let date = isoFormatter.date(from: string) else {
+      return
+    }
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "dd-MMM-yyyy"
+    let dateText = dateFormatter.string(from: date)
+    let label = createLabel(text: "Date: " + dateText, font: UIFont.systemFont(ofSize: 28.0))
     label.preferredMaxLayoutWidth = self.view.bounds.width;
     containerView.addArrangedSubview(label)
   }
