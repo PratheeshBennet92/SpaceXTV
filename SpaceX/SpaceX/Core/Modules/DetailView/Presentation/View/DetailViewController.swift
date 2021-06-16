@@ -122,12 +122,15 @@ class DetailViewController: UIViewController {
     buttonStackView.addArrangedSubview(watchNowButton)
     buttonStackView.addArrangedSubview(UIView())
   }
-  private func addButtonStack() {
+  fileprivate func addFocusGuideToButtonStack() {
     self.buttonStackView.addLayoutGuide(focusGuide)
     self.focusGuide.leftAnchor.constraint(equalTo: self.buttonStackView.leftAnchor).isActive = true
     self.focusGuide.topAnchor.constraint(equalTo: self.buttonStackView.topAnchor).isActive = true
     self.focusGuide.widthAnchor.constraint(equalTo: self.buttonStackView.widthAnchor).isActive = true
     self.focusGuide.heightAnchor.constraint(equalTo: self.buttonStackView.heightAnchor).isActive = true
+  }
+  private func addButtonStack() {
+    addFocusGuideToButtonStack()
     buttonStackView.heightAnchor.constraint(equalToConstant: 90).isActive = true
     containerView.addArrangedSubview(UIView())
     containerView.addArrangedSubview(buttonStackView)
