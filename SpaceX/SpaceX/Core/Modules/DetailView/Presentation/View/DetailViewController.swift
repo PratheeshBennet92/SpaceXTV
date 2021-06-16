@@ -1,5 +1,7 @@
 import UIKit
 import Apollo
+import AVFoundation
+import AVKit
 class DetailViewController: UIViewController {
   var selectedMission: JSONEncodable?
   private var gridViewImages: GridViewController<DetailViewCell,[String]> = {
@@ -150,7 +152,17 @@ class DetailViewController: UIViewController {
     return myLabel
   }
   @objc func watchTrailerTapped() {
-      print("Watch trailer tapped")
+    print("Watch trailer tapped")
+    guard let path = Bundle.main.path(forResource: "Crew Dragon _ Animation", ofType:"mp4") else {
+      debugPrint("video.m4v not found")
+      return
+    }
+    let player = AVPlayer(url: URL(fileURLWithPath: path))
+    let playerController = AVPlayerViewController()
+    playerController.player = player
+    present(playerController, animated: true) {
+      player.play()
+    }
   }
   @objc func watchNowTapped() {
       print("Watch trailer tapped")
