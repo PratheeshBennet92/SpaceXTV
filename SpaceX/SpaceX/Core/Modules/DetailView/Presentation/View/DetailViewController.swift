@@ -31,12 +31,8 @@ class DetailViewController: UIViewController {
     return stackView
   }()
   lazy var playTrailorButton = UIButton()
-  var myPreferredFocusedView:UIView?
-  override var preferredFocusedView: UIView? {
-      return playTrailorButton
-  }
-
-
+  lazy var watchNowButton = UIButton()
+  var focusGuide = UIFocusGuide()
   override func viewDidLoad() {
     super.viewDidLoad()
     addScrollView()
@@ -48,6 +44,7 @@ class DetailViewController: UIViewController {
     addLaunchDate()
     addDetails()
     addPlayTrailor()
+    addWatchNowButton()
     addButtonStack()
   }
   private func setImageGrid() {
@@ -113,10 +110,9 @@ class DetailViewController: UIViewController {
     playTrailorButton.addTarget(self, action: #selector(watchTrailerTapped), for: .primaryActionTriggered)
     self.setNeedsFocusUpdate()
     buttonStackView.addArrangedSubview(playTrailorButton)
-    addWatchNowButton()
+    
   }
   private func addWatchNowButton() {
-    let watchNowButton = UIButton()
     watchNowButton.setTitle("Watch Now", for: .normal)
     watchNowButton.backgroundColor = .darkGray
     watchNowButton.widthAnchor.constraint(equalToConstant: 250).isActive = true
@@ -125,6 +121,11 @@ class DetailViewController: UIViewController {
     buttonStackView.addArrangedSubview(UIView())
   }
   private func addButtonStack() {
+    self.buttonStackView.addLayoutGuide(focusGuide)
+    self.focusGuide.leftAnchor.constraint(equalTo: self.buttonStackView.leftAnchor).isActive = true
+    self.focusGuide.topAnchor.constraint(equalTo: self.buttonStackView.topAnchor).isActive = true
+    self.focusGuide.widthAnchor.constraint(equalTo: self.buttonStackView.widthAnchor).isActive = true
+    self.focusGuide.heightAnchor.constraint(equalTo: self.buttonStackView.heightAnchor).isActive = true
     buttonStackView.heightAnchor.constraint(equalToConstant: 90).isActive = true
     containerView.addArrangedSubview(UIView())
     containerView.addArrangedSubview(buttonStackView)
@@ -155,6 +156,35 @@ class DetailViewController: UIViewController {
       print("Watch trailer tapped")
   }
   override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
-    print("did focus update")
+    print("did focus update", self.playTrailorButton.isFocused)
+    guard let nextFocusedView = context.nextFocusedView else { return }
+    if nextFocusedView == self.playTrailorButton {
+      setButtonSelected(button: self.playTrailorButton)
+      self.focusGuide.preferredFocusEnvironments = [self.playTrailorButton]
+      setButtonDeSelected(button: self.watchNowButton)
+    } else if nextFocusedView == self.watchNowButton {
+      setButtonSelected(button: self.watchNowButton)
+      self.focusGuide.preferredFocusEnvironments = [self.watchNowButton]
+      setButtonDeSelected(button: self.playTrailorButton)
+    }
+    else {
+      setButtonDeSelected(button: self.watchNowButton)
+      setButtonDeSelected(button: self.playTrailorButton)
+    }
+  }
+  private func setButtonSelected(button: UIButton) {
+    button.transform = CGAffineTransform(scaleX: 1, y: 1)
+    button.layer.borderWidth = 6.0
+    button.layer.borderColor = UIColor.gray.cgColor
+    button.layer.shadowColor = UIColor.gray.cgColor
+    button.layer.shadowRadius = 10.0
+    button.layer.shadowOpacity = 0.9
+    button.layer.shadowOffset = CGSize(width: 0, height: 0)
+  }
+  private func setButtonDeSelected(button: UIButton) {
+    button.layer.borderWidth = 0.0
+    button.layer.shadowRadius = 0.0
+    button.layer.shadowOpacity = 0
+    button.transform =  CGAffineTransform(scaleX: 0.90, y: 0.90)
   }
 }
