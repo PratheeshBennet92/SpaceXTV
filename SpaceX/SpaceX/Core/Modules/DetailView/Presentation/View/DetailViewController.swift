@@ -23,6 +23,20 @@ class DetailViewController: UIViewController {
     //stackView.directionalLayoutMargins = NSDirectionalEdgeInsets(top: -100, leading: 20, bottom: 20, trailing: 20)
     return stackView
   }()
+  lazy var buttonStackView: UIStackView = {
+    let stackView = UIStackView()
+    stackView.axis = .horizontal
+    stackView.spacing = UIStackView.spacingUseSystem
+    stackView.isLayoutMarginsRelativeArrangement = true
+    return stackView
+  }()
+  lazy var playTrailorButton = UIButton()
+  var myPreferredFocusedView:UIView?
+  override var preferredFocusedView: UIView? {
+      return playTrailorButton
+  }
+
+
   override func viewDidLoad() {
     super.viewDidLoad()
     addScrollView()
@@ -33,6 +47,8 @@ class DetailViewController: UIViewController {
     addLaunchSite()
     addLaunchDate()
     addDetails()
+    addPlayTrailor()
+    addButtonStack()
   }
   private func setImageGrid() {
     if let images = (selectedMission as? LaunchlistQuery.Data.LaunchesPast)?.links?.flickrImages {
@@ -87,6 +103,32 @@ class DetailViewController: UIViewController {
     label.preferredMaxLayoutWidth = self.view.bounds.width;
     containerView.addArrangedSubview(label)
   }
+  private func addPlayTrailor() {
+    playTrailorButton.setTitle("Watch Trailer", for: .normal)
+    playTrailorButton.backgroundColor = .darkGray
+    playTrailorButton.widthAnchor.constraint(equalToConstant: 250).isActive = true
+    playTrailorButton.titleLabel?.font = UIFont.systemFont(ofSize: 28.0)
+    playTrailorButton.setNeedsFocusUpdate()
+    playTrailorButton.updateFocusIfNeeded()
+    playTrailorButton.addTarget(self, action: #selector(watchTrailerTapped), for: .primaryActionTriggered)
+    self.setNeedsFocusUpdate()
+    buttonStackView.addArrangedSubview(playTrailorButton)
+    addWatchNowButton()
+  }
+  private func addWatchNowButton() {
+    let watchNowButton = UIButton()
+    watchNowButton.setTitle("Watch Now", for: .normal)
+    watchNowButton.backgroundColor = .darkGray
+    watchNowButton.widthAnchor.constraint(equalToConstant: 250).isActive = true
+    watchNowButton.titleLabel?.font = UIFont.systemFont(ofSize: 28.0)
+    buttonStackView.addArrangedSubview(watchNowButton)
+    buttonStackView.addArrangedSubview(UIView())
+  }
+  private func addButtonStack() {
+    buttonStackView.heightAnchor.constraint(equalToConstant: 90).isActive = true
+    containerView.addArrangedSubview(UIView())
+    containerView.addArrangedSubview(buttonStackView)
+  }
   private func addScrollView() {
     view.addSubview(scrollView)
     scrollView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: .zero).isActive = true
@@ -105,5 +147,14 @@ class DetailViewController: UIViewController {
     myLabel.textAlignment = .left
     myLabel.clipsToBounds = true
     return myLabel
+  }
+  @objc func watchTrailerTapped() {
+      print("Watch trailer tapped")
+  }
+  @objc func watchNowTapped() {
+      print("Watch trailer tapped")
+  }
+  override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
+    print("did focus update")
   }
 }

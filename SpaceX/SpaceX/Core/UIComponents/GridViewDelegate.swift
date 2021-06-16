@@ -19,10 +19,12 @@ class GridViewDelegate: NSObject, UICollectionViewDelegate {
           cell.contentView.layer.borderWidth = 0.0
           cell.contentView.layer.shadowRadius = 0.0
           cell.contentView.layer.shadowOpacity = 0
+          cell.contentView.transform =  CGAffineTransform(scaleX: 0.90, y: 0.90)
       }
 
       if let indexPath = context.nextFocusedIndexPath,
          let cell = collectionView.cellForItem(at: indexPath) {
+          cell.contentView.transform = CGAffineTransform(scaleX: 1, y: 1)
           cell.contentView.layer.borderWidth = 6.0
           cell.contentView.layer.borderColor = UIColor.gray.cgColor
           cell.contentView.layer.shadowColor = UIColor.gray.cgColor
