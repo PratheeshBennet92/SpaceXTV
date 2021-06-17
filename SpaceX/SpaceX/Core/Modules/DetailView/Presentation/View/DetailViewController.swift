@@ -35,8 +35,7 @@ class DetailViewController: UIViewController {
   lazy var playTrailorButton = UIButton()
   lazy var watchNowButton = UIButton()
   var focusGuide = UIFocusGuide()
-  override func viewDidLoad() {
-    super.viewDidLoad()
+  fileprivate func configureUI() {
     addScrollView()
     addContainerView()
     addImageGrid()
@@ -49,6 +48,10 @@ class DetailViewController: UIViewController {
     addWatchNowButton()
     addButtonStack()
   }
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    configureUI()
+  }
   private func setImageGrid() {
     if let images = (selectedMission as? LaunchlistQuery.Data.LaunchesPast)?.links?.flickrImages {
     let viewModel = DetailViewModel(arrImages: images)
@@ -59,7 +62,6 @@ class DetailViewController: UIViewController {
   private func addContainerView() {
     scrollView.addSubview(containerView)
     containerView.leadingAnchor.constraint(equalTo: self.scrollView.leadingAnchor, constant: .zero).isActive = true
-    //containerView.trailingAnchor.constraint(equalTo: self.scrollView.trailingAnchor, constant: .zero).isActive = true
     containerView.topAnchor.constraint(equalTo: self.scrollView.topAnchor, constant: .zero).isActive = true
     containerView.widthAnchor.constraint(equalToConstant: self.view.frame.width).isActive = true
     containerView.bottomAnchor.constraint(equalTo: self.scrollView.bottomAnchor, constant: .zero).isActive = true
